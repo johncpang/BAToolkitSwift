@@ -30,9 +30,9 @@
 
 import UIKit
 
-extension UIImage {
+public extension UIImage {
 
-	func image(color: UIColor) -> UIImage {
+	public func image(color: UIColor) -> UIImage {
 		UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
 		color.setFill()
 
@@ -50,7 +50,7 @@ extension UIImage {
 		return newImage
 	}
 
-	func image(color: UIColor, size: CGSize) -> UIImage {
+	public func image(color: UIColor, size: CGSize) -> UIImage {
 		UIGraphicsBeginImageContextWithOptions(size, false, 0)
 		color.setFill()
 

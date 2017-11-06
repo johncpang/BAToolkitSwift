@@ -27,10 +27,31 @@
 
 import UIKit
 
-@IBDesignable open class BARoundImageView: BAImageView {
+@IBDesignable open class BARoundImageView: UIImageView {
 
-	override open func updateCorner(bounds: CGRect) {
-		setRoundCorner(min(bounds.width, bounds.height) / 2)
+	override open func awakeFromNib() {
+		super.awakeFromNib()
+		updateCorner(bounds: self.bounds)
 	}
 
+	override open var frame: CGRect {
+		get { return super.frame }
+		set {
+			updateCorner(bounds: newValue)
+			super.frame = newValue
+		}
+	}
+
+	override open var bounds: CGRect {
+		get { return super.bounds }
+		set {
+			updateCorner(bounds: newValue)
+			super.bounds = newValue
+		}
+	}
+
+	open func updateCorner(bounds: CGRect) {
+		setRoundCorner(min(bounds.width, bounds.height) / 2)
+	}
+	
 }

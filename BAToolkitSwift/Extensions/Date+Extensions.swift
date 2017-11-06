@@ -30,10 +30,10 @@
 
 import Foundation
 
-extension Date {
+public extension Date {
 
 	// example localIdentifier: "en_US_POSIX"
-	func string(format: String, localeIdentifier: String? = nil) -> String {
+	public func string(format: String, localeIdentifier: String? = nil) -> String {
 		let formatter = DateFormatter()
 		formatter.dateFormat = format
 		if let identifier = localeIdentifier {
@@ -42,19 +42,19 @@ extension Date {
 		return formatter.string(from: self)
 	}
 
-	func isBeforeToday() -> Bool {
+	public func isBeforeToday() -> Bool {
 		return (compareWithToday() == .orderedAscending)
 	}
 
-	func isToday() -> Bool {
+	public func isToday() -> Bool {
 		return (compareWithToday() == .orderedSame)
 	}
 
-	func isAfterToday() -> Bool {
+	public func isAfterToday() -> Bool {
 		return (compareWithToday() == .orderedDescending)
 	}
 
-	func compareWithToday() -> ComparisonResult {
+	public func compareWithToday() -> ComparisonResult {
 		let calendar = Locale.current.calendar
 		let units: Set<Calendar.Component> = [.year, .month, .day]
 		let today = calendar.date(from: calendar.dateComponents(units, from: Date()))!

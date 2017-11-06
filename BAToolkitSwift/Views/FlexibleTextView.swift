@@ -31,7 +31,8 @@ import UIKit
 
 @IBDesignable open class FlexibleTextView: UITextView {
 	// limit the height of expansion per intrinsicContentSize
-	var maxHeight: CGFloat = 0.0
+	open var maxHeight: CGFloat = 0.0
+
 	private let placeholderTextView: UITextView = {
 		let tv = UITextView()
 
@@ -68,7 +69,7 @@ import UIKit
 			])
 	}
 
-	override init(frame: CGRect, textContainer: NSTextContainer?) {
+	override public init(frame: CGRect, textContainer: NSTextContainer?) {
 		super.init(frame: frame, textContainer: textContainer)
 		xibSetup()
 	}

@@ -39,33 +39,33 @@ open class LoopPickerData<T>: NSObject {
 
 	private var middleRow = 0
 
-	var items: [T]! {
+	open var items: [T]! {
 		didSet {
 			reload()
 		}
 	}
 
-	func reload() {
+	open func reload() {
 		let count = items!.count
 		numberOfRows = (count < 2000 ? 10000 : count * 10)
 		middleRow = ((numberOfRows / count) / 2) * count
 	}
 
-	func index(atRow row: Int) -> Int {
+	open func index(atRow row: Int) -> Int {
 		return (row % items!.count)
 	}
 
-	func value(atRow row: Int) -> T {
+	open func value(atRow row: Int) -> T {
 		return items[index(atRow: row)]
 	}
 
-	func row(atIndex index: Int) -> Int {
+	open func row(atIndex index: Int) -> Int {
 		return middleRow + index
 	}
 
 	// whenever the picker view comes to rest, we'll jump back to
 	// the row with the current value that is closest to the middle
-	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+	open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		let newRow = middleRow + (row % items!.count)
 		pickerView.selectRow(newRow, inComponent: component, animated: false)
 		NSLog("Resetting row to \(newRow)")

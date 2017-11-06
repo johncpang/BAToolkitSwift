@@ -30,9 +30,9 @@
 
 import UIKit
 
-extension UIResponder {
+public extension UIResponder {
 
-	func iOS_version() -> Float {
+	public func iOS_version() -> Float {
 		return UIDevice.current.systemVersion.floatValue()
 	}
 

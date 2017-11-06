@@ -30,9 +30,9 @@
 
 import UIKit
 
-extension UITextField {
+public extension UITextField {
 
-	func setBottomBorder(color: UIColor) {
+	public func setBottomBorder(color: UIColor) {
 		self.borderStyle = .none
 		self.layer.backgroundColor = UIColor.white.cgColor
 		self.layer.masksToBounds = false

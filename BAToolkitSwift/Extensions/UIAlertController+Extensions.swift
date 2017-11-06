@@ -30,13 +30,13 @@
 
 import UIKit
 
-extension UIAlertController {
+public extension UIAlertController {
 
-	class func alertControllerAsActionSheet() -> UIAlertController {
+	static func alertControllerAsActionSheet() -> UIAlertController {
 		return UIAlertController.init(title: nil, message:nil, preferredStyle:.actionSheet)
 	}
 
-	class func alertControllerAsAlert() -> UIAlertController {
+	static func alertControllerAsAlert() -> UIAlertController {
 		return UIAlertController.init(title: nil, message:nil, preferredStyle:.alert)
 	}
 

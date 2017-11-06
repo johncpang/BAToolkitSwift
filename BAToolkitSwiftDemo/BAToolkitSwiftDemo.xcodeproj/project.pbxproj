@@ -19,7 +19,7 @@
 		520A5F581FB00BE200537B49 /* BAViewControllerWithBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A5F3C1FB00BE100537B49 /* BAViewControllerWithBlur.swift */; };
 		520A5F591FB00BE200537B49 /* BAViewControllerWithTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A5F3D1FB00BE100537B49 /* BAViewControllerWithTable.swift */; };
 		520A5F5A1FB00BE200537B49 /* BAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A5F3E1FB00BE100537B49 /* BAButton.swift */; };
-		520A5F5B1FB00BE200537B49 /* BANavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A5F3F1FB00BE100537B49 /* BANavigationController.swift */; };
+		520A5F5B1FB00BE200537B49 /* BANewNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A5F3F1FB00BE100537B49 /* BANewNavigationController.swift */; };
 		520A5F5C1FB00BE200537B49 /* BAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A5F401FB00BE100537B49 /* BAView.swift */; };
 		520A5F5D1FB00BE200537B49 /* FlexibleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A5F411FB00BE100537B49 /* FlexibleTextView.swift */; };
 		520A5F5E1FB00BE200537B49 /* BAHairlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A5F421FB00BE100537B49 /* BAHairlineView.swift */; };
@@ -70,7 +70,7 @@
 		520A5F3C1FB00BE100537B49 /* BAViewControllerWithBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BAViewControllerWithBlur.swift; sourceTree = "<group>"; };
 		520A5F3D1FB00BE100537B49 /* BAViewControllerWithTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BAViewControllerWithTable.swift; sourceTree = "<group>"; };
 		520A5F3E1FB00BE100537B49 /* BAButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BAButton.swift; sourceTree = "<group>"; };
-		520A5F3F1FB00BE100537B49 /* BANavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BANavigationController.swift; sourceTree = "<group>"; };
+		520A5F3F1FB00BE100537B49 /* BANewNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BANewNavigationController.swift; sourceTree = "<group>"; };
 		520A5F401FB00BE100537B49 /* BAView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BAView.swift; sourceTree = "<group>"; };
 		520A5F411FB00BE100537B49 /* FlexibleTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleTextView.swift; sourceTree = "<group>"; };
 		520A5F421FB00BE100537B49 /* BAHairlineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BAHairlineView.swift; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 				520A5F3B1FB00BE100537B49 /* BAViewController.swift */,
 				520A5F3C1FB00BE100537B49 /* BAViewControllerWithBlur.swift */,
 				520A5F3D1FB00BE100537B49 /* BAViewControllerWithTable.swift */,
-				520A5F3F1FB00BE100537B49 /* BANavigationController.swift */,
+				520A5F3F1FB00BE100537B49 /* BANewNavigationController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -343,7 +343,7 @@
 				520A5F6B1FB00BE200537B49 /* UIResponder+Extensions.swift in Sources */,
 				520A5F601FB00BE200537B49 /* LoopPickerData.swift in Sources */,
 				520A5F701FB00CC500537B49 /* BATableViewController.swift in Sources */,
-				520A5F5B1FB00BE200537B49 /* BANavigationController.swift in Sources */,
+				520A5F5B1FB00BE200537B49 /* BANewNavigationController.swift in Sources */,
 				520A5F5E1FB00BE200537B49 /* BAHairlineView.swift in Sources */,
 				520A5F5D1FB00BE200537B49 /* FlexibleTextView.swift in Sources */,
 				520A5F681FB00BE200537B49 /* UIImage+Extensions.swift in Sources */,

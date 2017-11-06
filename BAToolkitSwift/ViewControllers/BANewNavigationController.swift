@@ -1,5 +1,5 @@
 //
-//  BANavigationController.swift
+//  BANewNavigationController.swift
 //
 //  @version 1.0
 //  @author John Pang, http://brewingapps.com
@@ -27,7 +27,9 @@
 
 import UIKit
 
-open class BANavigationController: UINavigationController {
+open class BANewNavigationController: UINavigationController {
+
+	@IBInspectable open var backgroundColor: UIColor = UIColor.white
 
 	override public init(navigationBarClass: Swift.AnyClass?, toolbarClass: Swift.AnyClass?) {
 		super.init(navigationBarClass: navigationBarClass, toolbarClass: toolbarClass)
@@ -44,7 +46,7 @@ open class BANavigationController: UINavigationController {
 
 	override open func viewDidLoad() {
 		super.viewDidLoad()
-		self.view.backgroundColor = UIColor.white
+		self.view.backgroundColor = backgroundColor
 	}
 	
 }

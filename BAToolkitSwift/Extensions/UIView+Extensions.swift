@@ -30,29 +30,29 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
 
 	// MARK: - Display and Styling
 
-	func setBorder(color: UIColor) {
+	public func setBorder(color: UIColor) {
 		self.layer.borderColor = color.cgColor;
 	}
 
-	func setBorder(color: UIColor, pixelWidth width: CGFloat) {
+	public func setBorder(color: UIColor, pixelWidth width: CGFloat) {
 		self.layer.borderColor = color.cgColor;
 		self.layer.borderWidth = width / UIScreen.main.scale;
 	}
 
-	func setRoundCorner(_ radius: CGFloat) {
+	public func setRoundCorner(_ radius: CGFloat) {
 		self.layer.cornerRadius = radius
 		self.clipsToBounds = true
 	}
 
-	func clearRoundCorder() {
+	public func clearRoundCorder() {
 		self.layer.cornerRadius = 0.0
 	}
 
-	func fadeOut(_ animated: Bool = true) {
+	public func fadeOut(_ animated: Bool = true) {
 		if (animated) {
 			UIView.animate(withDuration: 0.3) {self.alpha = 0}
 		} else {
@@ -60,7 +60,7 @@ extension UIView {
 		}
 	}
 
-	func fadeIn(_ animated: Bool = true) {
+	public func fadeIn(_ animated: Bool = true) {
 		if (animated) {
 			UIView.animate(withDuration: 0.3) {self.alpha = 1}
 		} else {
@@ -70,7 +70,7 @@ extension UIView {
 
 	// MARK: - User Interactions
 
-	func addTapGesture(target: UIGestureRecognizerDelegate?, action: Selector?) -> UITapGestureRecognizer {
+	public func addTapGesture(target: UIGestureRecognizerDelegate?, action: Selector?) -> UITapGestureRecognizer {
 		let gesture = UITapGestureRecognizer.init(target: target, action: action)
 		gesture.numberOfTapsRequired = 1;
 		self.addGestureRecognizer(gesture)
@@ -83,7 +83,7 @@ extension UIView {
 	// MARK: - Animation
 
 	// https://stackoverflow.com/a/34199068
-	func startRotate() {
+	public func startRotate() {
 		let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
 		rotation.toValue = NSNumber(value: -Double.pi * 2)
 		rotation.duration = 2
@@ -92,17 +92,17 @@ extension UIView {
 		self.layer.add(rotation, forKey: "rotationAnimation")
 	}
 
-	func stopRotate() {
+	public func stopRotate() {
 		self.layer.removeAnimation(forKey: "rotationAnimation")
 	}
 
 	// MARK: - View loading
 
-	func loadViewFromNib() -> UIView {
+	public func loadViewFromNib() -> UIView {
 		return loadViewFromNib(String(describing: type(of: self)))
 	}
 
-	func loadViewFromNib(_ nibName: String) -> UIView {
+	public func loadViewFromNib(_ nibName: String) -> UIView {
 		let bundle = Bundle(for: type(of: self))
 		let nib = UINib(nibName: nibName, bundle: bundle)
 		let view = nib.instantiate(withOwner: self, options: nil).first as! UIView

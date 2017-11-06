@@ -27,7 +27,7 @@
 
 import UIKit
 
-@IBDesignable class UnderlineTextField: UITextField {
+@IBDesignable open class UnderlineTextField: UITextField {
 
 	@IBInspectable open var activeLineColor: UIColor = UIColor.init(white: 32.0/255.0, alpha: 1.0)
 

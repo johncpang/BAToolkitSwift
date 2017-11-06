@@ -30,7 +30,7 @@
 
 import UIKit
 
-extension UIColor {
+public extension UIColor {
 
 	convenience init(red: Int, green: Int, blue: Int, a: CGFloat = 1.0) {
 		self.init(
@@ -50,12 +50,21 @@ extension UIColor {
 		)
 	}
 
-	convenience init(rgb: Int, a: CGFloat = 1.0) {
+	convenience init(rgb: Int, a: CGFloat) {
 		self.init(
 			red: (rgb >> 16) & 0xFF,
 			green: (rgb >> 8) & 0xFF,
 			blue: rgb & 0xFF,
 			a: a
+		)
+	}
+
+	convenience init(rgb: Int) {
+		self.init(
+			red: (rgb >> 16) & 0xFF,
+			green: (rgb >> 8) & 0xFF,
+			blue: rgb & 0xFF,
+			a: 1.0
 		)
 	}
 
@@ -69,7 +78,7 @@ extension UIColor {
 		)
 	}
 
-	var hexString: String {
+	public var hexString: String {
 		let colorRef = self.cgColor.components!
 		let r: CGFloat = colorRef[0]
 		let g: CGFloat = colorRef[1]

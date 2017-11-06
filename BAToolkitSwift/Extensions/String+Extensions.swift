@@ -30,9 +30,9 @@
 
 import Foundation
 
-extension String {
+public extension String {
 
-	func isValidEmail() -> Bool {
+	public func isValidEmail() -> Bool {
 		if (self.length > 0) {
 			// Regular domain name: [A-Za-z0-9.-]+\.[A-Za-z]{2,4}
 			// IP address: [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}
@@ -51,7 +51,7 @@ extension String {
 	// MARK: Common Swift String Extensions
 	// https://gist.github.com/albertbori/0faf7de867d96eb83591
 
-	var length: Int {
+	public var length: Int {
 		get {
 			#if swift(>=3.2)
 				return self.count
@@ -61,22 +61,22 @@ extension String {
 		}
 	}
 	
-	func contains(s: String) -> Bool {
+	public func contains(s: String) -> Bool {
 		return (self.range(of: s) != nil) ? true : false
 	}
 
-	func replace(target: String, withString: String) -> String {
+	public func replace(target: String, withString: String) -> String {
 		return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
 	}
 
-	static func string(jsonObject: Any) -> String? {
+	static public func string(jsonObject: Any) -> String? {
 		if let data = try? JSONSerialization.data(withJSONObject: jsonObject) {
 			return String.init(data: data, encoding: .utf8)!
 		}
 		return nil
 	}
 
-	func floatValue() -> Float {
+	public func floatValue() -> Float {
 		return (self as NSString).floatValue
 	}
 }
