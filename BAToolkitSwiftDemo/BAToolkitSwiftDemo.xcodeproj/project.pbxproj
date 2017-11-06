@@ -158,14 +158,14 @@
 		520A5EA71FB00AC400537B49 /* BAToolkitSwift */ = {
 			isa = PBXGroup;
 			children = (
+				5228F3CA1FB04A38003839AF /* Extensions */,
 				5228F3C81FB0443B003839AF /* Extras */,
-				5228F3C41FB036CB003839AF /* Extensions */,
-				5228F3C31FB036B6003839AF /* ViewControllers */,
+				5228F3CB1FB04A4F003839AF /* ViewControllers */,
 				5228F3C21FB0369E003839AF /* Views */,
 			);
 			name = BAToolkitSwift;
 			path = ../BAToolkitSwift;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		5228F3C21FB0369E003839AF /* Views */ = {
 			isa = PBXGroup;
@@ -180,23 +180,19 @@
 				520A5F411FB00BE100537B49 /* FlexibleTextView.swift */,
 				520A5F431FB00BE100537B49 /* UnderlineTextField.swift */,
 			);
-			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		5228F3C31FB036B6003839AF /* ViewControllers */ = {
+		5228F3C81FB0443B003839AF /* Extras */ = {
 			isa = PBXGroup;
 			children = (
-				520A5F3A1FB00BE100537B49 /* BAPageViewController.swift */,
-				520A5F6F1FB00CC500537B49 /* BATableViewController.swift */,
-				520A5F3B1FB00BE100537B49 /* BAViewController.swift */,
-				520A5F3C1FB00BE100537B49 /* BAViewControllerWithBlur.swift */,
-				520A5F3D1FB00BE100537B49 /* BAViewControllerWithTable.swift */,
-				520A5F3F1FB00BE100537B49 /* BANavigationController.swift */,
+				520A5F441FB00BE100537B49 /* LoopPickerData.swift */,
 			);
-			name = ViewControllers;
-			sourceTree = "<group>";
+			name = Extras;
+			path = ../BAToolkitSwift/Extras;
+			sourceTree = SOURCE_ROOT;
 		};
-		5228F3C41FB036CB003839AF /* Extensions */ = {
+		5228F3CA1FB04A38003839AF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				520A5F4A1FB00BE200537B49 /* Date+Extensions.swift */,
@@ -210,17 +206,21 @@
 				520A5F541FB00BE200537B49 /* UIView+Extensions.swift */,
 				520A5F551FB00BE200537B49 /* UIViewController+Extensions.swift */,
 			);
-			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		5228F3C81FB0443B003839AF /* Extras */ = {
+		5228F3CB1FB04A4F003839AF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				520A5F441FB00BE100537B49 /* LoopPickerData.swift */,
+				520A5F3A1FB00BE100537B49 /* BAPageViewController.swift */,
+				520A5F6F1FB00CC500537B49 /* BATableViewController.swift */,
+				520A5F3B1FB00BE100537B49 /* BAViewController.swift */,
+				520A5F3C1FB00BE100537B49 /* BAViewControllerWithBlur.swift */,
+				520A5F3D1FB00BE100537B49 /* BAViewControllerWithTable.swift */,
+				520A5F3F1FB00BE100537B49 /* BANavigationController.swift */,
 			);
-			name = Extras;
-			path = ../BAToolkitSwift/Extras;
-			sourceTree = SOURCE_ROOT;
+			path = ViewControllers;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 

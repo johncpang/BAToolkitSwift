@@ -10,7 +10,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BAToolkitSwift"
-  s.version      = "0.1.3"
+  s.version      = "0.1.4"
   s.summary      = "An iOS app building toolkit in Swift."
 
   # This description is used to generate tags and improve search results.
@@ -54,16 +54,16 @@ Pod::Spec.new do |s|
   s.exclude_files = "BAToolkitSwift/Exclude"
 
   s.subspec 'Extensions' do |ss|
-    ss.source_files = "BAToolkitSwift/*Extensions.{h,m,swift}"
+    ss.source_files = "BAToolkitSwift/Extensions/*.{h,m,swift}"
   end
 
   s.subspec 'ViewControllers' do |ss|
-    ss.source_files = "BAToolkitSwift/*Controller*.{h,m,swift}"
+    ss.source_files = "BAToolkitSwift/ViewControllers/*.{h,m,swift}"
     ss.dependency 'BAToolkitSwift/Extensions'
   end
 
   s.subspec 'Views' do |ss|
-    ss.source_files = "BAToolkitSwift/BA{*Button,*TextField,*View}.{h,m,swift}"
+    ss.source_files = "BAToolkitSwift/Views/*.{h,m,swift}"
     ss.dependency 'BAToolkitSwift/Extensions'
   end
 
