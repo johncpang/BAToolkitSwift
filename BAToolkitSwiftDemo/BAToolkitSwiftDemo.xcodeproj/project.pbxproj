@@ -158,38 +158,14 @@
 		520A5EA71FB00AC400537B49 /* BAToolkitSwift */ = {
 			isa = PBXGroup;
 			children = (
+				5228F3C81FB0443B003839AF /* Extras */,
 				5228F3C41FB036CB003839AF /* Extensions */,
-				5228F3BF1FB03680003839AF /* Customize */,
+				5228F3C31FB036B6003839AF /* ViewControllers */,
+				5228F3C21FB0369E003839AF /* Views */,
 			);
 			name = BAToolkitSwift;
 			path = ../BAToolkitSwift;
 			sourceTree = SOURCE_ROOT;
-		};
-		5228F3BF1FB03680003839AF /* Customize */ = {
-			isa = PBXGroup;
-			children = (
-				5228F3C01FB0368B003839AF /* UIKit */,
-			);
-			name = Customize;
-			sourceTree = "<group>";
-		};
-		5228F3C01FB0368B003839AF /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				5228F3C31FB036B6003839AF /* ViewControllers */,
-				5228F3C21FB0369E003839AF /* Views */,
-				5228F3C11FB03690003839AF /* Others */,
-			);
-			name = UIKit;
-			sourceTree = "<group>";
-		};
-		5228F3C11FB03690003839AF /* Others */ = {
-			isa = PBXGroup;
-			children = (
-				520A5F441FB00BE100537B49 /* LoopPickerData.swift */,
-			);
-			name = Others;
-			sourceTree = "<group>";
 		};
 		5228F3C21FB0369E003839AF /* Views */ = {
 			isa = PBXGroup;
@@ -223,24 +199,8 @@
 		5228F3C41FB036CB003839AF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				5228F3C51FB036EA003839AF /* Foundation */,
-				5228F3C61FB036F3003839AF /* UIKit */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
-		5228F3C51FB036EA003839AF /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
 				520A5F4A1FB00BE200537B49 /* Date+Extensions.swift */,
 				520A5F4B1FB00BE200537B49 /* String+Extensions.swift */,
-			);
-			name = Foundation;
-			sourceTree = "<group>";
-		};
-		5228F3C61FB036F3003839AF /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
 				520A5F4D1FB00BE200537B49 /* UIAlertController+Extensions.swift */,
 				520A5F4E1FB00BE200537B49 /* UIColor+Extensions.swift */,
 				520A5F4F1FB00BE200537B49 /* UIImage+Extensions.swift */,
@@ -250,8 +210,16 @@
 				520A5F541FB00BE200537B49 /* UIView+Extensions.swift */,
 				520A5F551FB00BE200537B49 /* UIViewController+Extensions.swift */,
 			);
-			name = UIKit;
+			name = Extensions;
 			sourceTree = "<group>";
+		};
+		5228F3C81FB0443B003839AF /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				520A5F441FB00BE100537B49 /* LoopPickerData.swift */,
+			);
+			path = Extras;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
