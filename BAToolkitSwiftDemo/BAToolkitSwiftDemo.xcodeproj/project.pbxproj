@@ -218,7 +218,8 @@
 			children = (
 				520A5F441FB00BE100537B49 /* LoopPickerData.swift */,
 			);
-			path = Extras;
+			name = Extras;
+			path = ../BAToolkitSwift/Extras;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
