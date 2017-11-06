@@ -31,6 +31,18 @@ import UIKit
 
 open class BATableViewController: UITableViewController {
 
+	override public init(style: UITableViewStyle) {
+		super.init(style: style)
+	}
+
+	override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+	}
+
+	required public init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+	}
+
 	override open func viewDidLoad() {
 		super.viewDidLoad()
 		removeEmptySeparators(fromTableView: self.tableView)
@@ -50,7 +62,7 @@ open class BATableViewController: UITableViewController {
 
 	// MARK: - UITableViewDelegate
 
-	func tableView(_ tableView: UITableView, numberOfVisibleRows section: Int) -> Int {
+	open func tableView(_ tableView: UITableView, numberOfVisibleRows section: Int) -> Int {
 		let count = super.tableView(tableView, numberOfRowsInSection: section)
 		var hidden = 0
 		for i in 0..<count {

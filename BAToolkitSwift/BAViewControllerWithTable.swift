@@ -29,16 +29,24 @@ import UIKit
 
 open class BAViewControllerWithTable: BAViewController, UITableViewDataSource, UITableViewDelegate {
 
-	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak open var tableView: UITableView!
 
-	weak var refreshControl: UIRefreshControl!
+	weak open var refreshControl: UIRefreshControl!
 
+	override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+	}
+
+	required public init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+	}
+	
     override open func viewDidLoad() {
         super.viewDidLoad()
 		removeEmptySeparators(fromTableView: self.tableView)
 	}
 	
-	func setupRefreshControl() {
+	open func setupRefreshControl() {
 		// http://stackoverflow.com/questions/12497940/uirefreshcontrol-without-uitableviewcontroller
 		let tableViewController = UITableViewController.init()
 		tableViewController.tableView = self.tableView

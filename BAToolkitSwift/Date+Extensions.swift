@@ -1,5 +1,8 @@
 //
-//  BAViewControllerWithBlur.swift
+//  Date+Extensions.swift
+//  BAToolkitSwift
+//
+//  Created by John on 2017-11-6.
 //
 //  @version 1.0
 //  @author John Pang, http://brewingapps.com
@@ -25,43 +28,38 @@
 //  THE SOFTWARE.
 //
 
-import UIKit
+import Foundation
 
-open class BAViewControllerWithBlur: BAViewController {
+extension Date {
 
-	@IBOutlet weak open var effectView: UIVisualEffectView!
-
-    override open func viewDidLoad() {
-		super.viewDidLoad()
-		// addDismissKeyboardGesture
-		let tap = UITapGestureRecognizer.init(target: self, action: #selector(dismissView))
-		self.effectView.addGestureRecognizer(tap)
-		tap.cancelsTouchesInView = true
-		if (iOS_version() >= 9.0) {
-			self.effectView.effect = nil
+	// example localIdentifier: "en_US_POSIX"
+	func string(format: String, localeIdentifier: String? = nil) -> String {
+		let formatter = DateFormatter()
+		formatter.dateFormat = format
+		if let identifier = localeIdentifier {
+			formatter.locale = Locale.init(identifier: identifier)
 		}
+		return formatter.string(from: self)
 	}
 
-	override open func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		if (iOS_version() >= 9.0) {
-			UIView.animate(withDuration: 0.6) {
-				self.effectView.effect = UIBlurEffect(style: .light)
-			}
-		}
+	func isBeforeToday() -> Bool {
+		return (compareWithToday() == .orderedAscending)
 	}
 
-	override open func viewWillDisappear(_ animated: Bool) {
-		super.viewWillDisappear(animated)
-		if (iOS_version() >= 9.0) {
-			UIView.animate(withDuration: 0.3) {
-				self.effectView.effect = nil
-			}
-		}
+	func isToday() -> Bool {
+		return (compareWithToday() == .orderedSame)
 	}
 
-	@objc open func dismissView() {
-		self.dismiss(animated: true, completion: nil)
+	func isAfterToday() -> Bool {
+		return (compareWithToday() == .orderedDescending)
+	}
+
+	func compareWithToday() -> ComparisonResult {
+		let calendar = Locale.current.calendar
+		let units: Set<Calendar.Component> = [.year, .month, .day]
+		let today = calendar.date(from: calendar.dateComponents(units, from: Date()))!
+		let date = calendar.date(from: calendar.dateComponents(units, from: self))!
+		return date.compare(today)
 	}
 
 }

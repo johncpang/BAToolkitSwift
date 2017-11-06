@@ -1,8 +1,5 @@
 //
-//  Date+Extensions.swift
-//  BAToolkitSwift
-//
-//  Created by John on 2017-11-6.
+//  BANavigationController.swift
 //
 //  @version 1.0
 //  @author John Pang, http://brewingapps.com
@@ -30,36 +27,24 @@
 
 import UIKit
 
-extension Date {
+open class BANavigationController: UINavigationController {
 
-	// example localIdentifier: "en_US_POSIX"
-	func string(format: String, localeIdentifier: String? = nil) -> String {
-		let formatter = DateFormatter()
-		formatter.dateFormat = format
-		if let identifier = localeIdentifier {
-			formatter.locale = Locale.init(identifier: identifier)
-		}
-		return formatter.string(from: self)
+	override public init(navigationBarClass: Swift.AnyClass?, toolbarClass: Swift.AnyClass?) {
+		super.init(navigationBarClass: navigationBarClass, toolbarClass: toolbarClass)
 	}
 
-	func isBeforeToday() -> Bool {
-		return (compareWithToday() == .orderedAscending)
+
+	override public init(rootViewController: UIViewController) {
+		super.init(rootViewController: rootViewController)
 	}
 
-	func isToday() -> Bool {
-		return (compareWithToday() == .orderedSame)
+	required public init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
 	}
 
-	func isAfterToday() -> Bool {
-		return (compareWithToday() == .orderedDescending)
+	override open func viewDidLoad() {
+		super.viewDidLoad()
+		self.view.backgroundColor = UIColor.white
 	}
-
-	func compareWithToday() -> ComparisonResult {
-		let calendar = Locale.current.calendar
-		let units: Set<Calendar.Component> = [.year, .month, .day]
-		let today = calendar.date(from: calendar.dateComponents(units, from: Date()))!
-		let date = calendar.date(from: calendar.dateComponents(units, from: self))!
-		return date.compare(today)
-	}
-
+	
 }

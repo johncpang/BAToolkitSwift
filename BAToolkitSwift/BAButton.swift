@@ -29,7 +29,7 @@ import UIKit
 
 @IBDesignable open class BAButton: UIButton {
 
-	@IBInspectable var borderWidth: CGFloat = 1.0 {
+	@IBInspectable open var borderWidth: CGFloat = 1.0 {
 		didSet {
 			if (self.borderWidth < 0) {
 				self.borderWidth = 0
@@ -38,19 +38,19 @@ import UIKit
 		}
 	}
 
-	@IBInspectable var borderColor: UIColor = UIColor.clear {
+	@IBInspectable open var borderColor: UIColor = UIColor.clear {
 		didSet {
 			updateBorder()
 		}
 	}
 
-	@IBInspectable var cornerRadius: CGFloat = 0.0 {
+	@IBInspectable open var cornerRadius: CGFloat = 0.0 {
 		didSet {
 			updateCorner(bounds: self.bounds)
 		}
 	}
 
-	@IBInspectable var animatedOnHighlighted: Bool = true
+	@IBInspectable open var animatedOnHighlighted: Bool = true
 
 	override open func awakeFromNib() {
 		super.awakeFromNib()

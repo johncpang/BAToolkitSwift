@@ -1,5 +1,5 @@
 //
-//  BAView.swift
+//  UnderlineTextField.swift
 //
 //  @version 1.0
 //  @author John Pang, http://brewingapps.com
@@ -27,56 +27,75 @@
 
 import UIKit
 
-@IBDesignable open class BAView: UIView {
+@IBDesignable class UnderlineTextField: UITextField {
 
-	@IBInspectable var borderWidth: CGFloat = 1.0 {
-		didSet {
-			if (self.borderWidth < 0) {
-				self.borderWidth = 0
-			}
-			updateBorder()
-		}
-	}
+	@IBInspectable open var activeLineColor: UIColor = UIColor.init(white: 32.0/255.0, alpha: 1.0)
 
-	@IBInspectable var borderColor: UIColor = UIColor.clear {
-		didSet {
-			updateBorder()
-		}
-	}
+	@IBInspectable open var inactiveLineColor: UIColor = UIColor.init(white: 192.0/255.0, alpha: 1.0)
 
-	@IBInspectable var cornerRadius: CGFloat = 0.0 {
-		didSet {
-			updateCorner(bounds: self.bounds)
-		}
-	}
+	@IBOutlet weak open var errorLabel: UILabel?
 
 	override open func awakeFromNib() {
 		super.awakeFromNib()
-		updateCorner(bounds: self.bounds)
+		setup()
+		updateBottomline(false)
 	}
 
 	override open var frame: CGRect {
 		get { return super.frame }
 		set {
-			updateCorner(bounds: newValue)
 			super.frame = newValue
+			updateBottomline(false)
 		}
 	}
 
 	override open var bounds: CGRect {
 		get { return super.bounds }
 		set {
-			updateCorner(bounds: newValue)
 			super.bounds = newValue
+			updateBottomline(false)
 		}
 	}
 
-	open func updateBorder() {
-		setBorder(color: self.borderColor, pixelWidth: self.borderWidth)
+	func setup() {
+		self.addTarget(self, action: #selector(editingDidBegin(_:)), for: .editingDidBegin)
+		self.addTarget(self, action: #selector(editingDidEnd(_:)), for: .editingDidEnd)
+		self.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
+		self.errorLabel?.isHidden = true
 	}
 
-	open func updateCorner(bounds: CGRect) {
-		setRoundCorner(cornerRadius)
+	@objc open func editingDidBegin(_ textField: UITextField) {
+		updateBottomline(true)
+	}
+
+	@objc open func editingDidEnd(_ textField: UITextField) {
+		updateBottomline(false);
+	}
+
+	@objc open func editingChanged(_ textField: UITextField) {
+		hideError()
+	}
+
+	open func updateBottomline(_ active: Bool) {
+		self.setBottomBorder(color: (active ? self.activeLineColor : self.inactiveLineColor))
+	}
+
+	open func hideError() {
+		self.errorLabel?.alpha = 0.0
+	}
+
+	open func showError() {
+		self.errorLabel?.alpha = 1.0
+		self.errorLabel?.isHidden = false
+	}
+
+	open func showError(text: String) {
+		self.errorLabel?.text = text
+		showError()
+	}
+
+	open func hasError() -> Bool {
+		return !(self.errorLabel?.isHidden ?? true)
 	}
 
 }

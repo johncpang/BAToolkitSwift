@@ -158,78 +158,40 @@
 		520A5EA71FB00AC400537B49 /* BAToolkitSwift */ = {
 			isa = PBXGroup;
 			children = (
-				520A5F381FB00BE100537B49 /* Customize */,
-				520A5F481FB00BE200537B49 /* Extensions */,
+				5228F3C41FB036CB003839AF /* Extensions */,
+				5228F3BF1FB03680003839AF /* Customize */,
 			);
 			name = BAToolkitSwift;
 			path = ../BAToolkitSwift;
 			sourceTree = SOURCE_ROOT;
 		};
-		520A5F381FB00BE100537B49 /* Customize */ = {
+		5228F3BF1FB03680003839AF /* Customize */ = {
 			isa = PBXGroup;
 			children = (
-				520A5F391FB00BE100537B49 /* UIKit */,
+				5228F3C01FB0368B003839AF /* UIKit */,
 			);
-			path = Customize;
+			name = Customize;
 			sourceTree = "<group>";
 		};
-		520A5F391FB00BE100537B49 /* UIKit */ = {
+		5228F3C01FB0368B003839AF /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				520A5F731FB0159E00537B49 /* Others */,
-				520A5F721FB0158200537B49 /* Views */,
-				520A5F711FB0156800537B49 /* ViewControllers */,
+				5228F3C31FB036B6003839AF /* ViewControllers */,
+				5228F3C21FB0369E003839AF /* Views */,
+				5228F3C11FB03690003839AF /* Others */,
 			);
-			path = UIKit;
+			name = UIKit;
 			sourceTree = "<group>";
 		};
-		520A5F481FB00BE200537B49 /* Extensions */ = {
+		5228F3C11FB03690003839AF /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				520A5F491FB00BE200537B49 /* Foundation */,
-				520A5F4C1FB00BE200537B49 /* UIKit */,
+				520A5F441FB00BE100537B49 /* LoopPickerData.swift */,
 			);
-			path = Extensions;
+			name = Others;
 			sourceTree = "<group>";
 		};
-		520A5F491FB00BE200537B49 /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				520A5F4A1FB00BE200537B49 /* Date+Extensions.swift */,
-				520A5F4B1FB00BE200537B49 /* String+Extensions.swift */,
-			);
-			path = Foundation;
-			sourceTree = "<group>";
-		};
-		520A5F4C1FB00BE200537B49 /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				520A5F4D1FB00BE200537B49 /* UIAlertController+Extensions.swift */,
-				520A5F4E1FB00BE200537B49 /* UIColor+Extensions.swift */,
-				520A5F4F1FB00BE200537B49 /* UIImage+Extensions.swift */,
-				520A5F511FB00BE200537B49 /* UIRefreshControl+Extensions.swift */,
-				520A5F521FB00BE200537B49 /* UIResponder+Extensions.swift */,
-				520A5F531FB00BE200537B49 /* UITextField+Extensions.swift */,
-				520A5F541FB00BE200537B49 /* UIView+Extensions.swift */,
-				520A5F551FB00BE200537B49 /* UIViewController+Extensions.swift */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
-		520A5F711FB0156800537B49 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				520A5F3A1FB00BE100537B49 /* BAPageViewController.swift */,
-				520A5F6F1FB00CC500537B49 /* BATableViewController.swift */,
-				520A5F3B1FB00BE100537B49 /* BAViewController.swift */,
-				520A5F3C1FB00BE100537B49 /* BAViewControllerWithBlur.swift */,
-				520A5F3D1FB00BE100537B49 /* BAViewControllerWithTable.swift */,
-				520A5F3F1FB00BE100537B49 /* BANavigationController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		520A5F721FB0158200537B49 /* Views */ = {
+		5228F3C21FB0369E003839AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				520A5F3E1FB00BE100537B49 /* BAButton.swift */,
@@ -242,15 +204,53 @@
 				520A5F411FB00BE100537B49 /* FlexibleTextView.swift */,
 				520A5F431FB00BE100537B49 /* UnderlineTextField.swift */,
 			);
-			path = Views;
+			name = Views;
 			sourceTree = "<group>";
 		};
-		520A5F731FB0159E00537B49 /* Others */ = {
+		5228F3C31FB036B6003839AF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				520A5F441FB00BE100537B49 /* LoopPickerData.swift */,
+				520A5F3A1FB00BE100537B49 /* BAPageViewController.swift */,
+				520A5F6F1FB00CC500537B49 /* BATableViewController.swift */,
+				520A5F3B1FB00BE100537B49 /* BAViewController.swift */,
+				520A5F3C1FB00BE100537B49 /* BAViewControllerWithBlur.swift */,
+				520A5F3D1FB00BE100537B49 /* BAViewControllerWithTable.swift */,
+				520A5F3F1FB00BE100537B49 /* BANavigationController.swift */,
 			);
-			path = Others;
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5228F3C41FB036CB003839AF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5228F3C51FB036EA003839AF /* Foundation */,
+				5228F3C61FB036F3003839AF /* UIKit */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		5228F3C51FB036EA003839AF /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				520A5F4A1FB00BE200537B49 /* Date+Extensions.swift */,
+				520A5F4B1FB00BE200537B49 /* String+Extensions.swift */,
+			);
+			name = Foundation;
+			sourceTree = "<group>";
+		};
+		5228F3C61FB036F3003839AF /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				520A5F4D1FB00BE200537B49 /* UIAlertController+Extensions.swift */,
+				520A5F4E1FB00BE200537B49 /* UIColor+Extensions.swift */,
+				520A5F4F1FB00BE200537B49 /* UIImage+Extensions.swift */,
+				520A5F511FB00BE200537B49 /* UIRefreshControl+Extensions.swift */,
+				520A5F521FB00BE200537B49 /* UIResponder+Extensions.swift */,
+				520A5F531FB00BE200537B49 /* UITextField+Extensions.swift */,
+				520A5F541FB00BE200537B49 /* UIView+Extensions.swift */,
+				520A5F551FB00BE200537B49 /* UIViewController+Extensions.swift */,
+			);
+			name = UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

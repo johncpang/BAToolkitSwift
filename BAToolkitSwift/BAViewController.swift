@@ -31,7 +31,15 @@ import UIKit
 
 open class BAViewController: UIViewController, UIGestureRecognizerDelegate {
 
-	var preventBack: Bool = false
+	open var preventBack: Bool = false
+
+	override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+	}
+
+	required public init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+	}
 
 	override open func viewDidLoad() {
 		super.viewDidLoad()

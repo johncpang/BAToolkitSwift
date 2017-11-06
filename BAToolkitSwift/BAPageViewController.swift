@@ -29,14 +29,24 @@ import UIKit
 
 open class BAPageViewController: UIPageViewController {
 
-	var pages = [UIViewController]()
+	public var pages = [UIViewController]()
+
+	override public init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil) {
+		super.init(transitionStyle: style,
+				   navigationOrientation: navigationOrientation,
+				   options: options)
+	}
+
+	required public init?(coder: NSCoder) {
+		super.init(coder: coder)
+	}
 
 	override open func viewDidLoad() {
 		super.viewDidLoad()
 		self.dataSource = self
 	}
 
-	var currentIndex:Int {
+	open var currentIndex:Int {
 		get {
 			return pages.index(of: self.viewControllers!.first!)!
 		}
@@ -53,7 +63,7 @@ open class BAPageViewController: UIPageViewController {
 		}
 	}
 
-	func disableBounceEffect() {
+	open func disableBounceEffect() {
 		for view in self.view.subviews {
 			if let scrollView = view as? UIScrollView {
 				scrollView.delegate = self

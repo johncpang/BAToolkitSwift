@@ -1,5 +1,5 @@
 //
-//  BANavigationController.swift
+//  BAViewControllerWithBlur.swift
 //
 //  @version 1.0
 //  @author John Pang, http://brewingapps.com
@@ -27,11 +27,49 @@
 
 import UIKit
 
-class BANavigationController: UINavigationController {
+open class BAViewControllerWithBlur: BAViewController {
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		self.view.backgroundColor = UIColor.white
+	@IBOutlet weak open var effectView: UIVisualEffectView!
+
+	override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+	}
+
+	required public init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
 	}
 	
+    override open func viewDidLoad() {
+		super.viewDidLoad()
+		// addDismissKeyboardGesture
+		let tap = UITapGestureRecognizer.init(target: self, action: #selector(dismissView))
+		self.effectView.addGestureRecognizer(tap)
+		tap.cancelsTouchesInView = true
+		if (iOS_version() >= 9.0) {
+			self.effectView.effect = nil
+		}
+	}
+
+	override open func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		if (iOS_version() >= 9.0) {
+			UIView.animate(withDuration: 0.6) {
+				self.effectView.effect = UIBlurEffect(style: .light)
+			}
+		}
+	}
+
+	override open func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		if (iOS_version() >= 9.0) {
+			UIView.animate(withDuration: 0.3) {
+				self.effectView.effect = nil
+			}
+		}
+	}
+
+	@objc open func dismissView() {
+		self.dismiss(animated: true, completion: nil)
+	}
+
 }

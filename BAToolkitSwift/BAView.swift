@@ -1,5 +1,5 @@
 //
-//  UnderlineTextField.swift
+//  BAView.swift
 //
 //  @version 1.0
 //  @author John Pang, http://brewingapps.com
@@ -27,75 +27,56 @@
 
 import UIKit
 
-@IBDesignable class UnderlineTextField: UITextField {
+@IBDesignable open class BAView: UIView {
 
-	@IBInspectable var activeLineColor: UIColor = UIColor.init(white: 32.0/255.0, alpha: 1.0)
+	@IBInspectable open var borderWidth: CGFloat = 1.0 {
+		didSet {
+			if (self.borderWidth < 0) {
+				self.borderWidth = 0
+			}
+			updateBorder()
+		}
+	}
 
-	@IBInspectable var inactiveLineColor: UIColor = UIColor.init(white: 192.0/255.0, alpha: 1.0)
+	@IBInspectable open var borderColor: UIColor = UIColor.clear {
+		didSet {
+			updateBorder()
+		}
+	}
 
-	@IBOutlet weak var errorLabel: UILabel?
+	@IBInspectable open var cornerRadius: CGFloat = 0.0 {
+		didSet {
+			updateCorner(bounds: self.bounds)
+		}
+	}
 
 	override open func awakeFromNib() {
 		super.awakeFromNib()
-		setup()
-		updateBottomline(false)
+		updateCorner(bounds: self.bounds)
 	}
 
 	override open var frame: CGRect {
 		get { return super.frame }
 		set {
+			updateCorner(bounds: newValue)
 			super.frame = newValue
-			updateBottomline(false)
 		}
 	}
 
 	override open var bounds: CGRect {
 		get { return super.bounds }
 		set {
+			updateCorner(bounds: newValue)
 			super.bounds = newValue
-			updateBottomline(false)
 		}
 	}
 
-	func setup() {
-		self.addTarget(self, action: #selector(editingDidBegin(_:)), for: .editingDidBegin)
-		self.addTarget(self, action: #selector(editingDidEnd(_:)), for: .editingDidEnd)
-		self.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
-		self.errorLabel?.isHidden = true
+	open func updateBorder() {
+		setBorder(color: self.borderColor, pixelWidth: self.borderWidth)
 	}
 
-	@objc func editingDidBegin(_ textField: UITextField) {
-		updateBottomline(true)
-	}
-
-	@objc func editingDidEnd(_ textField: UITextField) {
-		updateBottomline(false);
-	}
-
-	@objc func editingChanged(_ textField: UITextField) {
-		hideError()
-	}
-
-	func updateBottomline(_ active: Bool) {
-		self.setBottomBorder(color: (active ? self.activeLineColor : self.inactiveLineColor))
-	}
-
-	func hideError() {
-		self.errorLabel?.alpha = 0.0
-	}
-
-	func showError() {
-		self.errorLabel?.alpha = 1.0
-		self.errorLabel?.isHidden = false
-	}
-
-	func showError(text: String) {
-		self.errorLabel?.text = text
-		showError()
-	}
-
-	func hasError() -> Bool {
-		return !(self.errorLabel?.isHidden ?? true)
+	open func updateCorner(bounds: CGRect) {
+		setRoundCorner(cornerRadius)
 	}
 
 }

@@ -29,7 +29,7 @@ import UIKit
 
 @IBDesignable open class BAImageView: UIView {
 
-	@IBInspectable var borderWidth: CGFloat = 1.0 {
+	@IBInspectable open var borderWidth: CGFloat = 1.0 {
 		didSet {
 			if (self.borderWidth < 0) {
 				self.borderWidth = 0
@@ -38,13 +38,13 @@ import UIKit
 		}
 	}
 
-	@IBInspectable var borderColor: UIColor = UIColor.clear {
+	@IBInspectable open var borderColor: UIColor = UIColor.clear {
 		didSet {
 			updateBorder()
 		}
 	}
 
-	@IBInspectable var cornerRadius: CGFloat = 0.0 {
+	@IBInspectable open var cornerRadius: CGFloat = 0.0 {
 		didSet {
 			updateCorner(bounds: self.bounds)
 		}

@@ -43,7 +43,7 @@ import UIKit
 		return tv
 	}()
 
-	@IBInspectable var placeholder: String! {
+	@IBInspectable open var placeholder: String! {
 		get {
 			return placeholderTextView.text
 		}
@@ -120,7 +120,7 @@ import UIKit
 		return size
 	}
 
-	@objc private func textDidChange(_ note: Notification) {
+	@objc open func textDidChange(_ note: Notification) {
 		// needed incase isScrollEnabled is set to true which stops automatically calling invalidateIntrinsicContentSize()
 		invalidateIntrinsicContentSize()
 		self.placeholderTextView.isHidden = !self.text.isEmpty

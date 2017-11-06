@@ -29,7 +29,7 @@ import UIKit
 
 @IBDesignable open class BAHairlineView: UIView {
 
-	@IBInspectable var thickness: CGFloat = 1.0
+	@IBInspectable open var thickness: CGFloat = 1.0
 
 	override open func awakeFromNib() {
 		super.awakeFromNib()
