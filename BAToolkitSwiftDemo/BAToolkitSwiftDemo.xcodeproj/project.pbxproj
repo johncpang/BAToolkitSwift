@@ -40,6 +40,7 @@
 		520A5F6E1FB00BE200537B49 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A5F551FB00BE200537B49 /* UIViewController+Extensions.swift */; };
 		520A5F701FB00CC500537B49 /* BATableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A5F6F1FB00CC500537B49 /* BATableViewController.swift */; };
 		520A5F751FB0183B00537B49 /* BAImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A5F741FB0183B00537B49 /* BAImageView.swift */; };
+		5228F3BE1FB02040003839AF /* BAToolkitSwift.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5228F3BD1FB02040003839AF /* BAToolkitSwift.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		520A5F551FB00BE200537B49 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		520A5F6F1FB00CC500537B49 /* BATableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BATableViewController.swift; sourceTree = "<group>"; };
 		520A5F741FB0183B00537B49 /* BAImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAImageView.swift; sourceTree = "<group>"; };
+		5228F3BD1FB02040003839AF /* BAToolkitSwift.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BAToolkitSwift.podspec; path = ../BAToolkitSwift.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				520A5E811FB00A7C00537B49 /* BAToolkitSwiftDemo */,
 				520A5E991FB00A7C00537B49 /* BAToolkitSwiftDemoTests */,
 				520A5E801FB00A7C00537B49 /* Products */,
+				5228F3BD1FB02040003839AF /* BAToolkitSwift.podspec */,
 			);
 			sourceTree = "<group>";
 		};
@@ -333,6 +336,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5228F3BE1FB02040003839AF /* BAToolkitSwift.podspec in Resources */,
 				520A5E901FB00A7C00537B49 /* LaunchScreen.storyboard in Resources */,
 				520A5E8D1FB00A7C00537B49 /* Assets.xcassets in Resources */,
 				520A5E881FB00A7C00537B49 /* Main.storyboard in Resources */,
