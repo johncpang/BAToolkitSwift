@@ -53,10 +53,14 @@ extension String {
 
 	var length: Int {
 		get {
-			return self.characters.count
+			#if swift(>=3.2)
+				return self.count
+			#else
+				return self.characters.count
+			#endif
 		}
 	}
-
+	
 	func contains(s: String) -> Bool {
 		return (self.range(of: s) != nil) ? true : false
 	}
