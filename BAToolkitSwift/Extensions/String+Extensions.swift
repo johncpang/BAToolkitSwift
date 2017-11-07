@@ -32,6 +32,10 @@ import Foundation
 
 public extension String {
 
+	static func isEmpty(_ string: String?) -> Bool {
+		return ((nil == string) || (string!.length == 0))
+	}
+
 	public func isValidEmail() -> Bool {
 		if (self.length > 0) {
 			// Regular domain name: [A-Za-z0-9.-]+\.[A-Za-z]{2,4}
@@ -79,4 +83,26 @@ public extension String {
 	public func floatValue() -> Float {
 		return (self as NSString).floatValue
 	}
+
+	static func join(_ array: [String]?) -> String? {
+		var result: String?
+		if let array = array {
+			result = ""
+			array.forEach() { result! += $0 }
+		}
+		return result
+	}
+
+	static func join(_ array: [String]?, with connector: String) -> String? {
+		var result: String?
+		if let array = array {
+			result = ""
+			array.dropLast().forEach() {
+				result! += $0 + connector
+			}
+			result! += array.last ?? ""
+		}
+		return result
+	}
+
 }

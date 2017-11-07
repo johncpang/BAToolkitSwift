@@ -65,7 +65,7 @@ open class LoopPickerData<T>: NSObject {
 
 	// whenever the picker view comes to rest, we'll jump back to
 	// the row with the current value that is closest to the middle
-	open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+	open func pickerView(_ pickerView: UIPickerView, selectRow row: Int, inComponent component: Int) {
 		let newRow = middleRow + (row % items!.count)
 		pickerView.selectRow(newRow, inComponent: component, animated: false)
 		NSLog("Resetting row to \(newRow)")
