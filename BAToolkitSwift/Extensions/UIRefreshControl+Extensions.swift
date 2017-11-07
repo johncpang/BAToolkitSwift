@@ -49,7 +49,7 @@ public extension UIRefreshControl {
 		if (self.isRefreshing) {
 			endRefreshing()
 		}
-		DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+		self.asyncAfter(.seconds(2)) {
 			self.setTitle(postTitle)
 		}
 	}
