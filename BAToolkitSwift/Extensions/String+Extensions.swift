@@ -69,6 +69,10 @@ public extension String {
 		return (self.range(of: s) != nil) ? true : false
 	}
 
+	public func trim() -> String {
+		return self.trimmingCharacters(in: .whitespacesAndNewlines)
+	}
+
 	public func replace(target: String, withString: String) -> String {
 		return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
 	}

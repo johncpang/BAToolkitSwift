@@ -35,12 +35,12 @@ public extension UIView {
 	// MARK: - Display and Styling
 
 	public func setBorder(color: UIColor) {
-		self.layer.borderColor = color.cgColor;
+		self.layer.borderColor = color.cgColor
 	}
 
 	public func setBorder(color: UIColor, pixelWidth width: CGFloat) {
-		self.layer.borderColor = color.cgColor;
-		self.layer.borderWidth = width / UIScreen.main.scale;
+		self.layer.borderColor = color.cgColor
+		self.layer.borderWidth = width / UIScreen.main.scale
 	}
 
 	public func setRoundCorner(_ radius: CGFloat) {
@@ -52,11 +52,36 @@ public extension UIView {
 		self.layer.cornerRadius = 0.0
 	}
 
+	// http://stackoverflow.com/questions/23988086/how-to-do-hexagon-type-image-masking-on-imageview-in-ios
+	public func setupAsHexagon() {
+		let rect = self.frame
+		let hexagonMask = CAShapeLayer.init()
+		let hexagonPath = UIBezierPath.init()
+
+		let sideWidth = 2 * ( 0.5 * rect.size.width / 2 )
+		let lcolumn = ( rect.size.width - sideWidth ) / 2
+		let rcolumn = rect.size.width - lcolumn
+		let height = 0.866025 * rect.size.height
+		let y = (rect.size.height - height) / 2
+		let by = rect.size.height - y
+		let midy = rect.size.height / 2
+		let rightmost = rect.size.width
+		hexagonPath.move(to: CGPoint(x: lcolumn, y: y))
+		hexagonPath.addLine(to: CGPoint(x: rcolumn, y: y))
+		hexagonPath.addLine(to: CGPoint(x: rightmost, y: midy))
+		hexagonPath.addLine(to: CGPoint(x: rcolumn, y: by))
+		hexagonPath.addLine(to: CGPoint(x: lcolumn, y: by))
+		hexagonPath.addLine(to: CGPoint(x: 0, y: midy))
+		hexagonPath.addLine(to: CGPoint(x: lcolumn, y: y))
+		hexagonMask.path = hexagonPath.cgPath
+		self.layer.mask = hexagonMask
+	}
+
 	public func fadeOut(_ animated: Bool = true) {
 		if (animated) {
 			UIView.animate(withDuration: 0.3) {self.alpha = 0}
 		} else {
-			self.alpha = 0;
+			self.alpha = 0
 		}
 	}
 
@@ -64,7 +89,7 @@ public extension UIView {
 		if (animated) {
 			UIView.animate(withDuration: 0.3) {self.alpha = 1}
 		} else {
-			self.alpha = 1;
+			self.alpha = 1
 		}
 	}
 
@@ -72,7 +97,7 @@ public extension UIView {
 
 	public func addTapGesture(target: UIGestureRecognizerDelegate?, action: Selector?) -> UITapGestureRecognizer {
 		let gesture = UITapGestureRecognizer.init(target: target, action: action)
-		gesture.numberOfTapsRequired = 1;
+		gesture.numberOfTapsRequired = 1
 		self.addGestureRecognizer(gesture)
 		self.isUserInteractionEnabled = true
 		gesture.cancelsTouchesInView = true

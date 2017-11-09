@@ -10,7 +10,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BAToolkitSwift"
-  s.version      = "0.1.5"
+  s.version      = "0.1.6"
   s.summary      = "An iOS app building toolkit in Swift."
 
   # This description is used to generate tags and improve search results.
@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
   #
 
   s.platform     = :ios
-  s.ios.deployment_target = "9.0"
+  s.ios.deployment_target = "8.2"
   # s.osx.deployment_target = "10.7"
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
