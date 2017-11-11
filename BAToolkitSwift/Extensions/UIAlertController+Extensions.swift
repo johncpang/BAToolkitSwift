@@ -32,11 +32,11 @@ import UIKit
 
 public extension UIAlertController {
 
-	static func alertControllerAsActionSheet() -> UIAlertController {
+	@objc static func alertControllerAsActionSheet() -> UIAlertController {
 		return UIAlertController.init(title: nil, message:nil, preferredStyle:.actionSheet)
 	}
 
-	static func alertControllerAsAlert() -> UIAlertController {
+	@objc static func alertControllerAsAlert() -> UIAlertController {
 		return UIAlertController.init(title: nil, message:nil, preferredStyle:.alert)
 	}
 

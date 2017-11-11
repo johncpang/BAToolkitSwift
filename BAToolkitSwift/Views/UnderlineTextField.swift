@@ -69,7 +69,7 @@ import UIKit
 	}
 
 	@objc open func editingDidEnd(_ textField: UITextField) {
-		updateBottomline(false);
+		updateBottomline(false)
 	}
 
 	@objc open func editingChanged(_ textField: UITextField) {
@@ -80,21 +80,21 @@ import UIKit
 		self.setBottomBorder(color: (active ? self.activeLineColor : self.inactiveLineColor))
 	}
 
-	open func hideError() {
+	@objc open func hideError() {
 		self.errorLabel?.alpha = 0.0
 	}
 
-	open func showError() {
+	@objc open func showError() {
 		self.errorLabel?.alpha = 1.0
 		self.errorLabel?.isHidden = false
 	}
 
-	open func showError(text: String) {
+	@objc open func showError(text: String) {
 		self.errorLabel?.text = text
 		showError()
 	}
 
-	open func hasError() -> Bool {
+	@objc open func hasError() -> Bool {
 		return !(self.errorLabel?.isHidden ?? true)
 	}
 

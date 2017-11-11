@@ -32,13 +32,13 @@ import UIKit
 
 public extension UIImage {
 
-	public func image(color: UIColor) -> UIImage {
+	@objc public func image(color: UIColor) -> UIImage {
 		UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
 		color.setFill()
 
 		let context = UIGraphicsGetCurrentContext()
 		context!.translateBy(x: 0, y: self.size.height)
-		context!.scaleBy(x: 1.0, y: -1.0);
+		context!.scaleBy(x: 1.0, y: -1.0)
 		context!.setBlendMode(CGBlendMode.normal)
 
 		let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
@@ -50,7 +50,7 @@ public extension UIImage {
 		return newImage
 	}
 
-	public func image(color: UIColor, size: CGSize) -> UIImage {
+	@objc public func image(color: UIColor, size: CGSize) -> UIImage {
 		UIGraphicsBeginImageContextWithOptions(size, false, 0)
 		color.setFill()
 

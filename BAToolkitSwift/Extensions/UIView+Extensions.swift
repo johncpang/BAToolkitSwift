@@ -34,21 +34,21 @@ public extension UIView {
 
 	// MARK: - Display and Styling
 
-	public func setBorder(color: UIColor) {
+	@objc public func setBorder(color: UIColor) {
 		self.layer.borderColor = color.cgColor
 	}
 
-	public func setBorder(color: UIColor, pixelWidth width: CGFloat) {
+	@objc public func setBorder(color: UIColor, pixelWidth width: CGFloat) {
 		self.layer.borderColor = color.cgColor
 		self.layer.borderWidth = width / UIScreen.main.scale
 	}
 
-	public func setRoundCorner(_ radius: CGFloat) {
+	@objc public func setRoundCorner(_ radius: CGFloat) {
 		self.layer.cornerRadius = radius
 		self.clipsToBounds = true
 	}
 
-	public func clearRoundCorder() {
+	@objc public func clearRoundCorder() {
 		self.layer.cornerRadius = 0.0
 	}
 
@@ -95,7 +95,7 @@ public extension UIView {
 
 	// MARK: - User Interactions
 
-	public func addTapGesture(target: UIGestureRecognizerDelegate?, action: Selector?) -> UITapGestureRecognizer {
+	@objc public func addTapGesture(target: UIGestureRecognizerDelegate?, action: Selector?) -> UITapGestureRecognizer {
 		let gesture = UITapGestureRecognizer.init(target: target, action: action)
 		gesture.numberOfTapsRequired = 1
 		self.addGestureRecognizer(gesture)
@@ -108,7 +108,7 @@ public extension UIView {
 	// MARK: - Animation
 
 	// https://stackoverflow.com/a/34199068
-	public func startRotate() {
+	@objc public func startRotate() {
 		let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
 		rotation.toValue = NSNumber(value: -Double.pi * 2)
 		rotation.duration = 2
@@ -117,7 +117,7 @@ public extension UIView {
 		self.layer.add(rotation, forKey: "rotationAnimation")
 	}
 
-	public func stopRotate() {
+	@objc public func stopRotate() {
 		self.layer.removeAnimation(forKey: "rotationAnimation")
 	}
 
@@ -130,10 +130,10 @@ public extension UIView {
 	public func loadViewFromNib(_ nibName: String) -> UIView {
 		let bundle = Bundle(for: type(of: self))
 		let nib = UINib(nibName: nibName, bundle: bundle)
-		let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
-		view.frame = bounds
-		view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
-		return view
+		let v = nib.instantiate(withOwner: self, options: nil).first as! UIView
+		v.frame = bounds
+		v.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+		return v
 	}
 
 }

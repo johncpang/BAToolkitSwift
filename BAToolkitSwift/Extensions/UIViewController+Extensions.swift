@@ -48,7 +48,7 @@ public extension UIViewController {
 	/*
 	 Changes the back button to empty text. Must called from parent view controller.
 	*/
-	public func setupEmptyBackButtonOnPushed() {
+	@objc public func setupEmptyBackButtonOnPushed() {
 		setupBackButtonOnPushed(text: " ")
 	}
 
@@ -56,20 +56,20 @@ public extension UIViewController {
 	Changes the back button to any text. Must called from parent view controller.
 	Default value is "Back",
 	*/
-	public func setupBackButtonOnPushed(text: String? = nil) {
+	@objc public func setupBackButtonOnPushed(text: String? = nil) {
 		let item = UIBarButtonItem(title: text, style: .plain, target: nil, action: nil)
 		self.navigationItem.backBarButtonItem = item
 	}
 
 	// MARK: - affect navigation controller flow
 
-	public func stopPopGestureRecognizer(delegate: UIGestureRecognizerDelegate?) {
+	@objc public func stopPopGestureRecognizer(delegate: UIGestureRecognizerDelegate?) {
 		let recognizer = self.navigationController?.interactivePopGestureRecognizer
 		recognizer?.isEnabled = false
 		recognizer?.delegate = delegate
 	}
 
-	public func resumePopGestureRecognizer() {
+	@objc public func resumePopGestureRecognizer() {
 		let recognizer = self.navigationController?.interactivePopGestureRecognizer
 		recognizer?.isEnabled = true
 		recognizer?.delegate = nil
@@ -77,16 +77,16 @@ public extension UIViewController {
 
 	// MARK: - UITextField or UITextView
 
-	public func toolbarWithDoneButton(_ action: Selector) -> UIToolbar? {
+	@objc public func toolbarWithDoneButton(_ action: Selector) -> UIToolbar? {
 		let screenW = UIScreen.main.bounds.width
 		let accessoryView = UIToolbar.init(frame: CGRect(x: 0, y: 0, width: screenW, height: 44.0))
 		let space = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 		let done = UIBarButtonItem.init(barButtonSystemItem: .done, target: nil, action: action)
-		accessoryView.items = [space, done];
+		accessoryView.items = [space, done]
 		return accessoryView
 	}
 
-	public func dismissKeyboardWhenTapping(view: UIView) {
+	@objc public func dismissKeyboardWhenTapping(view: UIView) {
 		let tap = UITapGestureRecognizer.init(target: self, action: #selector(dismissKeyboard))
 		tap.cancelsTouchesInView = false
 		view.addGestureRecognizer(tap)
@@ -98,28 +98,28 @@ public extension UIViewController {
 
 	// MARK: - UITableView
 
-	public func removeEmptySeparators(fromTableView tableView: UITableView) {
+	@objc public func removeEmptySeparators(fromTableView tableView: UITableView) {
 		tableView.tableFooterView = UIView.init(frame: CGRect.zero)
 	}
 
-	public func tableView(_ tableView: UITableView, enableAutoRowHeight estimatedRowHeight: CGFloat) {
+	@objc public func tableView(_ tableView: UITableView, enableAutoRowHeight estimatedRowHeight: CGFloat) {
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = estimatedRowHeight
 	}
 
-	public func tableView(_ tableView: UITableView, enableAutoSectionHeaderHeight height: CGFloat) {
+	@objc public func tableView(_ tableView: UITableView, enableAutoSectionHeaderHeight height: CGFloat) {
 		tableView.sectionHeaderHeight = UITableViewAutomaticDimension
 		tableView.estimatedSectionHeaderHeight = height
 	}
 
-	public func tableView(_ tableView: UITableView, enableAutoSectionFooterHeight height: CGFloat) {
+	@objc public func tableView(_ tableView: UITableView, enableAutoSectionFooterHeight height: CGFloat) {
 		tableView.sectionFooterHeight = UITableViewAutomaticDimension
 		tableView.estimatedSectionFooterHeight = height
 	}
 
 	// MARK: - UIAlertController
 
-	public func showAlert(title: String?, message: String?,
+	@objc public func showAlert(title: String?, message: String?,
 	               okButton: String?, okHandler:((UIAlertAction) -> Swift.Void)?,
 	               cancelButton: String?, cancelHandler:((UIAlertAction) -> Swift.Void)?) {
 		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -134,15 +134,15 @@ public extension UIViewController {
 		present(alert, animated: true, completion: nil)
 	}
 
-	public func showAlert(title: String?, message: String?, button: String?, handler:((UIAlertAction) -> Swift.Void)?) {
+	@objc public func showAlert(title: String?, message: String?, button: String?, handler:((UIAlertAction) -> Swift.Void)?) {
 		showAlert(title: title, message: message, okButton: button, okHandler: handler, cancelButton: nil, cancelHandler: nil)
 	}
 
-	public func showAlert(title: String?, message: String?, button: String?) {
+	@objc public func showAlert(title: String?, message: String?, button: String?) {
 		showAlert(title: title, message: message, okButton: button, okHandler: nil, cancelButton: nil, cancelHandler: nil)
 	}
 
-	public func showAlert(title: String?, button: String?) {
+	@objc public func showAlert(title: String?, button: String?) {
 		showAlert(title: title, message: nil, okButton: button, okHandler: nil, cancelButton: nil, cancelHandler: nil)
 	}
 

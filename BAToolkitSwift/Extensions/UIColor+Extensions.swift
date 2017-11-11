@@ -50,7 +50,7 @@ public extension UIColor {
 		)
 	}
 
-	convenience init(rgb: Int, a: CGFloat) {
+	@objc convenience init(rgb: Int, a: CGFloat) {
 		self.init(
 			red: (rgb >> 16) & 0xFF,
 			green: (rgb >> 8) & 0xFF,
@@ -59,7 +59,7 @@ public extension UIColor {
 		)
 	}
 
-	convenience init(rgb: Int) {
+	@objc convenience init(rgb: Int) {
 		self.init(
 			red: (rgb >> 16) & 0xFF,
 			green: (rgb >> 8) & 0xFF,

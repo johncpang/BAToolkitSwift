@@ -32,19 +32,19 @@ import UIKit
 
 public extension UIRefreshControl {
 
-	public func setTitle(_ str: String?) {
+	@objc public func setTitle(_ str: String?) {
 		self.attributedTitle = NSAttributedString.init(string: str!)
 	}
 
-	public func setTitleAsDefault() {
+	@objc public func setTitleAsDefault() {
 		setTitle("Pull to refresh")
 	}
 
-	public func setTitleAsRefreshing() {
+	@objc public func setTitleAsRefreshing() {
 		setTitle("Refreshing")
 	}
 
-	public func endRefreshing(title: String, postTitle: String) {
+	@objc public func endRefreshing(title: String, postTitle: String) {
 		setTitle(title)
 		if (self.isRefreshing) {
 			endRefreshing()
@@ -54,7 +54,7 @@ public extension UIRefreshControl {
 		}
 	}
 
-	public func endRefreshingWithDefaultTitle() {
+	@objc public func endRefreshingWithDefaultTitle() {
 		endRefreshing(title: " ", postTitle: "Pull to refresh")
 	}
 	
