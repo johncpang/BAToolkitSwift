@@ -29,6 +29,11 @@
 //
 
 import Foundation
+/// Returns a localized string, using the main bundle if one is not specified.
+
+public func LS(_ key: String) -> String {
+	return NSLocalizedString(key, comment: "")
+}
 
 public extension String {
 

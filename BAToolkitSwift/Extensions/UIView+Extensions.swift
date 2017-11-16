@@ -78,7 +78,7 @@ public extension UIView {
 	}
 
 	public func fadeOut(_ animated: Bool = true) {
-		if (animated) {
+		if (animated && self.alpha != 0) {
 			UIView.animate(withDuration: 0.3) {self.alpha = 0}
 		} else {
 			self.alpha = 0
@@ -86,7 +86,7 @@ public extension UIView {
 	}
 
 	public func fadeIn(_ animated: Bool = true) {
-		if (animated) {
+		if (animated && self.alpha != 1) {
 			UIView.animate(withDuration: 0.3) {self.alpha = 1}
 		} else {
 			self.alpha = 1

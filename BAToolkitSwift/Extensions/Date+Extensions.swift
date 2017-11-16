@@ -32,6 +32,12 @@ import Foundation
 
 public extension Date {
 
+	static func date(from string: String, format: String) -> Date? {
+		let formatter = DateFormatter.init()
+		formatter.dateFormat = format
+		return formatter.date(from: string)
+	}
+
 	// example localIdentifier: "en_US_POSIX"
 	public func string(format: String, localeIdentifier: String? = nil) -> String {
 		let formatter = DateFormatter()
