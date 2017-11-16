@@ -33,7 +33,7 @@ import UIKit
 public extension UIRefreshControl {
 
 	@objc public func setTitle(_ str: String?) {
-		self.attributedTitle = NSAttributedString.init(string: str!)
+		self.attributedTitle = NSAttributedString.init(string: str ?? "")
 	}
 
 	@objc public func setTitleAsDefault() {

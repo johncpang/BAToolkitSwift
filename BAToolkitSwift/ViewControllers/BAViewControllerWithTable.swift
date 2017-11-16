@@ -53,12 +53,12 @@ open class BAViewControllerWithTable: BAViewController, UITableViewDataSource, U
 
 		let refreshControl = UIRefreshControl.init()
 		refreshControl.setTitleAsDefault()
-		refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
+		refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
 		tableViewController.refreshControl = refreshControl
 		self.refreshControl = refreshControl
 	}
 
-	@objc open func handleRefresh(_ refreshControl: UIRefreshControl) {
+	@objc open func pullToRefresh(_ refreshControl: UIRefreshControl) {
 		// to be implemented by subclass
 	}
 
