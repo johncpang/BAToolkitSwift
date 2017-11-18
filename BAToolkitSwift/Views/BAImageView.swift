@@ -72,7 +72,7 @@ import UIKit
 	}
 
 	open func updateBorder() {
-		setBorder(color: self.borderColor, pixelWidth: self.borderWidth)
+		setBorder(color: self.borderColor, width: self.borderWidth)
 	}
 
 	open func updateCorner(bounds: CGRect) {
