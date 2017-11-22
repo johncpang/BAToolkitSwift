@@ -35,7 +35,7 @@ import UIKit
 		super.awakeFromNib()
 		self.constraints.forEach() {
 			if $0.constant == 1.0 {
-				$0.constant = self.thickness / UIScreen.main.scale
+				$0.constant = self.thickness / UIScreen.main.nativeScale
 			}
 		}
 		updateConstraints()

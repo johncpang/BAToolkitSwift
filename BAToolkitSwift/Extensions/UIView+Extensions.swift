@@ -38,9 +38,9 @@ public extension UIView {
 		self.layer.borderColor = color.cgColor
 	}
 
-	@objc public func setBorder(color: UIColor, width: CGFloat) {
+	@objc public func setBorder(color: UIColor, width: CGFloat, native: Bool = true) {
 		self.layer.borderColor = color.cgColor
-		self.layer.borderWidth = width
+		self.layer.borderWidth = width * (native ? UIScreen.main.scale / UIScreen.main.nativeScale : 1)
 	}
 
 	@objc public func setRoundCorner(_ radius: CGFloat) {
