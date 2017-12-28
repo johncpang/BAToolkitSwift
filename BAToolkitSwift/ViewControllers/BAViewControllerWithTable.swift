@@ -58,6 +58,15 @@ open class BAViewControllerWithTable: BAViewController, UITableViewDataSource, U
 		self.refreshControl = refreshControl
 	}
 
+	open func showRefreshControl(_ refreshControl: UIRefreshControl) {
+		let offset = self.tableView.contentOffset
+		self.tableView.setContentOffset(
+			CGPoint(x: offset.x,
+					y: offset.y - refreshControl.frame.size.height),
+			animated: true)
+		refreshControl.beginRefreshing()
+	}
+
 	@objc open func pullToRefresh(_ refreshControl: UIRefreshControl) {
 		// to be implemented by subclass
 	}
