@@ -1,5 +1,5 @@
 //
-//  UITextField+Extensions.swift
+//  UIButton+Extensions.swift
 //
 //  Created by John on 2017-11-6.
 //
@@ -29,21 +29,11 @@
 
 import UIKit
 
-public extension UITextField {
+public extension UIButton {
 
-	public func setBottomBorder(color: UIColor) {
-		self.borderStyle = .none
-		self.layer.backgroundColor = UIColor.white.cgColor
-		self.layer.masksToBounds = false
-		self.layer.shadowColor = color.cgColor
-		self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-		self.layer.shadowOpacity = 1.0
-		self.layer.shadowRadius = 0.0
+	@objc public func centerButtonAndImage(spacing: CGFloat) {
+		self.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: spacing)
+		self.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: spacing, bottom: 0, right: 0)
 	}
 
-	public func setPlaceholderColor(_ color: UIColor) {
-		let attr = [NSAttributedStringKey.foregroundColor : color]
-		self.attributedPlaceholder = NSAttributedString.init(string: self.placeholder!,
-															 attributes: attr)
-	}
 }

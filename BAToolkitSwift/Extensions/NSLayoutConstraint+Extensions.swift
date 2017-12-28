@@ -1,7 +1,7 @@
 //
-//  UITextField+Extensions.swift
+//  NSLayoutConstraint+Extensions.swift
 //
-//  Created by John on 2017-11-6.
+//  Created by John on 2017-12-24.
 //
 //  @version 1.0
 //  @author John Pang, http://brewingapps.com
@@ -27,23 +27,34 @@
 //  THE SOFTWARE.
 //
 
+import Foundation
 import UIKit
 
-public extension UITextField {
+extension NSLayoutConstraint {
+	/**
+	Change multiplier constraint
 
-	public func setBottomBorder(color: UIColor) {
-		self.borderStyle = .none
-		self.layer.backgroundColor = UIColor.white.cgColor
-		self.layer.masksToBounds = false
-		self.layer.shadowColor = color.cgColor
-		self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-		self.layer.shadowOpacity = 1.0
-		self.layer.shadowRadius = 0.0
-	}
+	- parameter multiplier: CGFloat
+	- returns: NSLayoutConstraint
+	*/
+	public func replace(multiplier:CGFloat) -> NSLayoutConstraint {
 
-	public func setPlaceholderColor(_ color: UIColor) {
-		let attr = [NSAttributedStringKey.foregroundColor : color]
-		self.attributedPlaceholder = NSAttributedString.init(string: self.placeholder!,
-															 attributes: attr)
+		NSLayoutConstraint.deactivate([self])
+
+		let newConstraint = NSLayoutConstraint(
+			item: firstItem as Any,
+			attribute: firstAttribute,
+			relatedBy: relation,
+			toItem: secondItem,
+			attribute: secondAttribute,
+			multiplier: multiplier,
+			constant: constant)
+
+		newConstraint.priority = priority
+		newConstraint.shouldBeArchived = self.shouldBeArchived
+		newConstraint.identifier = self.identifier
+
+		NSLayoutConstraint.activate([newConstraint])
+		return newConstraint
 	}
 }

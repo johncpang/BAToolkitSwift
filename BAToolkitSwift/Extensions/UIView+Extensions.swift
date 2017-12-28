@@ -135,5 +135,21 @@ public extension UIView {
 		return v
 	}
 
+	@objc public func removeAllSubviews() {
+		self.subviews.forEach() { $0.removeFromSuperview() }
+	}
+
+	@objc public func findFirstResponder() -> UIView? {
+		if (self.isFirstResponder) {
+			return self
+		}
+		for v in self.subviews {
+			if let res = v.findFirstResponder() {
+				return res
+			}
+		}
+		return nil
+	}
+
 }
 

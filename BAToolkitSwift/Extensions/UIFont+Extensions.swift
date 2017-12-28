@@ -1,12 +1,10 @@
 //
-//  UITextField+Extensions.swift
-//
-//  Created by John on 2017-11-6.
+//  UIFont+Extensions.swift
 //
 //  @version 1.0
 //  @author John Pang, http://brewingapps.com
 //
-//  Copyright © 2014-2018 Brewing Apps Limited ( http://brewingapps.com/ )
+//  Copyright © 2014–2016 Brewing Apps Limited ( http://brewingapps.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -29,21 +27,21 @@
 
 import UIKit
 
-public extension UITextField {
+public extension UIFont {
 
-	public func setBottomBorder(color: UIColor) {
-		self.borderStyle = .none
-		self.layer.backgroundColor = UIColor.white.cgColor
-		self.layer.masksToBounds = false
-		self.layer.shadowColor = color.cgColor
-		self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-		self.layer.shadowOpacity = 1.0
-		self.layer.shadowRadius = 0.0
+	@objc class func font(forTextStyle style: UIFontTextStyle, multiple: CGFloat) -> UIFont {
+		let font = UIFont.preferredFont(forTextStyle: style)
+		return font.withSize(font.pointSize * multiple)
 	}
 
-	public func setPlaceholderColor(_ color: UIColor) {
-		let attr = [NSAttributedStringKey.foregroundColor : color]
-		self.attributedPlaceholder = NSAttributedString.init(string: self.placeholder!,
-															 attributes: attr)
+	@objc class func systemFont(forTextStyle style: UIFontTextStyle, multiple: CGFloat, weight: Weight) -> UIFont {
+		let font = UIFont.preferredFont(forTextStyle: style)
+		let size = font.pointSize * multiple
+		return UIFont.systemFont(ofSize: size, weight: weight)
 	}
+
+	@objc public func systemFont(ofWeight weight: Weight) -> UIFont {
+		return UIFont.systemFont(ofSize: self.pointSize, weight: weight)
+	}
+
 }
