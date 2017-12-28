@@ -4,7 +4,7 @@
 //  @version 1.0
 //  @author John Pang, http://brewingapps.com
 //
-//  Copyright © 2014–2017 Brewing Apps Limited ( http://brewingapps.com/ )
+//  Copyright © 2014-2018 Brewing Apps Limited ( http://brewingapps.com/ )
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
