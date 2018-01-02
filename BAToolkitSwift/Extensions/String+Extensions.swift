@@ -56,6 +56,16 @@ public extension String {
 		return false
 	}
 
+	public func asEncodedURL() -> URL? {
+		if let url = URL(string: self) {
+			return url
+		}
+		if let s = self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+			return URL(string: s)
+		}
+		return nil
+	}
+
 	// MARK: Common Swift String Extensions
 	// https://gist.github.com/albertbori/0faf7de867d96eb83591
 
@@ -77,8 +87,43 @@ public extension String {
 		return self.trimmingCharacters(in: .whitespacesAndNewlines)
 	}
 
+	public func fullRange() -> NSRange {
+		return NSRange.init(location: 0, length: self.length)
+	}
+
 	public func replace(target: String, withString: String) -> String {
 		return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
+	}
+
+	public func replace(pattern: String, withTemplate templ: String) -> String {
+		if let regex = try? NSRegularExpression.init(pattern: pattern, options: .caseInsensitive) {
+			return regex.stringByReplacingMatches(in: self,
+												  range: self.fullRange(),
+												  withTemplate: templ)
+		}
+		return self
+	}
+
+	public func remove(pattern: String) -> String {
+		return replace(pattern: pattern, withTemplate: "")
+	}
+
+	public func unescapeHTML() -> String {
+		guard let data = self.data(using: .utf8) else {
+			return self
+		}
+		let attrString = try? NSAttributedString(data: data,
+													   options: [.documentType: NSAttributedString.DocumentType.html,
+																 .characterEncoding: String.Encoding.utf8.rawValue],
+													   documentAttributes: nil)
+		return attrString?.string ?? self
+	}
+
+	public func stripHTML() -> String {
+		return self.replacingOccurrences(of: "<[^>]+>",
+										 with: "",
+										 options: .regularExpression,
+										 range: nil)
 	}
 
 	static public func string(jsonObject: Any) -> String? {

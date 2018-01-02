@@ -60,11 +60,16 @@ public extension Date {
 	}
 
 	public func compareWithToday() -> ComparisonResult {
-		let calendar = Locale.current.calendar
+		let cal = Locale.current.calendar
 		let units: Set<Calendar.Component> = [.year, .month, .day]
-		let today = calendar.date(from: calendar.dateComponents(units, from: Date()))!
-		let date = calendar.date(from: calendar.dateComponents(units, from: self))!
+		let today = cal.date(from: cal.dateComponents(units, from: Date()))!
+		let date = cal.date(from: cal.dateComponents(units, from: self))!
 		return date.compare(today)
+	}
+
+	public func isCurrentYear() -> Bool {
+		let cal = Locale.current.calendar
+		return cal.component(.year, from: self) == cal.component(.year, from: Date())
 	}
 
 }
