@@ -145,4 +145,18 @@ public extension UIViewController {
 		showAlert(title: title, message: nil, okButton: button, okHandler: nil, cancelButton: nil, cancelHandler: nil)
 	}
 
+	// MARK: - Helpers
+
+	@objc public func bundleInfo(_ name: String) -> String? {
+		return Bundle.main.infoDictionary?[name] as? String
+	}
+
+	@objc public func bundleVersion() -> String? {
+		return bundleInfo("CFBundleShortVersionString")
+	}
+
+	@objc public func bundleBuild() -> String? {
+		return bundleInfo("CFBundleVersion")
+	}
+
 }

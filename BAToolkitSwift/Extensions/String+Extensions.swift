@@ -56,16 +56,6 @@ public extension String {
 		return false
 	}
 
-	public func asEncodedURL() -> URL? {
-		if let url = URL(string: self) {
-			return url
-		}
-		if let s = self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-			return URL(string: s)
-		}
-		return nil
-	}
-
 	// MARK: Common Swift String Extensions
 	// https://gist.github.com/albertbori/0faf7de867d96eb83591
 
@@ -78,17 +68,23 @@ public extension String {
 			#endif
 		}
 	}
+
+	public func floatValue() -> Float {
+		return (self as NSString).floatValue
+	}
 	
 	public func contains(s: String) -> Bool {
 		return (self.range(of: s) != nil) ? true : false
 	}
 
-	public func trim() -> String {
-		return self.trimmingCharacters(in: .whitespacesAndNewlines)
-	}
-
 	public func fullRange() -> NSRange {
 		return NSRange.init(location: 0, length: self.length)
+	}
+
+	// MARK: -
+
+	public func trim() -> String {
+		return self.trimmingCharacters(in: .whitespacesAndNewlines)
 	}
 
 	public func replace(target: String, withString: String) -> String {
@@ -108,34 +104,7 @@ public extension String {
 		return replace(pattern: pattern, withTemplate: "")
 	}
 
-	public func unescapeHTML() -> String {
-		guard let data = self.data(using: .utf8) else {
-			return self
-		}
-		let attrString = try? NSAttributedString(data: data,
-													   options: [.documentType: NSAttributedString.DocumentType.html,
-																 .characterEncoding: String.Encoding.utf8.rawValue],
-													   documentAttributes: nil)
-		return attrString?.string ?? self
-	}
-
-	public func stripHTML() -> String {
-		return self.replacingOccurrences(of: "<[^>]+>",
-										 with: "",
-										 options: .regularExpression,
-										 range: nil)
-	}
-
-	static public func string(jsonObject: Any) -> String? {
-		if let data = try? JSONSerialization.data(withJSONObject: jsonObject) {
-			return String.init(data: data, encoding: .utf8)!
-		}
-		return nil
-	}
-
-	public func floatValue() -> Float {
-		return (self as NSString).floatValue
-	}
+	// MARK: -
 
 	static func join(_ array: [String]?) -> String? {
 		var result: String?
@@ -156,6 +125,73 @@ public extension String {
 			result! += array.last ?? ""
 		}
 		return result
+	}
+
+	// MARK: - URL
+
+	public func asEncodedURL() -> URL? {
+		if let url = URL(string: self) {
+			return url
+		}
+		if let s = self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+			return URL(string: s)
+		}
+		return nil
+	}
+
+	// MARK: - HTML handlings
+
+	public func unescapeHTML() -> String {
+		guard let data = self.data(using: .utf8) else {
+			return self
+		}
+		let attrString = try? NSAttributedString(data: data,
+													   options: [.documentType: NSAttributedString.DocumentType.html,
+																 .characterEncoding: String.Encoding.utf8.rawValue],
+													   documentAttributes: nil)
+		return attrString?.string ?? self
+	}
+
+	public func stripHTML() -> String {
+		return self.replacingOccurrences(of: "<[^>]+>",
+										 with: "",
+										 options: .regularExpression,
+										 range: nil)
+	}
+
+	// MARK: - JSON handlings
+
+	static public func string(jsonObject: Any) -> String? {
+		if let data = try? JSONSerialization.data(withJSONObject: jsonObject) {
+			return String.init(data: data, encoding: .utf8)!
+		}
+		return nil
+	}
+
+	// MARK: - Numeric comparsion
+
+	public func numericCompareTo(_ string: String) -> ComparisonResult {
+		return self.compare(string, options: .numeric)
+	}
+
+	public func numericEqualTo(_ string: String) -> Bool {
+		return numericCompareTo(string) == .orderedSame
+	}
+
+	public func numericGreaterThan(_ string: String) -> Bool {
+		return numericCompareTo(string) == .orderedDescending
+	}
+
+	public func numericGreaterThanOrEqualTo(_ string: String) -> Bool {
+		return numericCompareTo(string) != .orderedAscending
+	}
+
+	public func numericLessThan(_ string: String) -> Bool {
+		return numericCompareTo(string) == .orderedAscending
+	}
+
+	public func numericLessThanOrEqualTo(_ string: String) -> Bool {
+		return numericCompareTo(string) != .orderedDescending
 	}
 
 }

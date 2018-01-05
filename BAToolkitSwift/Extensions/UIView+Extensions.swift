@@ -151,5 +151,17 @@ public extension UIView {
 		return nil
 	}
 
+	@objc public func subview(withTag tag: Int) -> UIView? {
+		for v in self.subviews {
+			if let v2 = v.subview(withTag: tag) {
+				return v2
+			}
+			if v.tag == tag {
+				return v
+			}
+		}
+		return nil
+	}
+
 }
 
