@@ -94,7 +94,7 @@ public extension UIView {
 
 	// MARK: - User Interactions
 
-	@objc public func addTapGesture(target: UIGestureRecognizerDelegate?, action: Selector?) -> UITapGestureRecognizer {
+	@discardableResult @objc public func addTapGesture(target: UIGestureRecognizerDelegate?, action: Selector?) -> UITapGestureRecognizer {
 		let gesture = UITapGestureRecognizer.init(target: target, action: action)
 		gesture.numberOfTapsRequired = 1
 		self.addGestureRecognizer(gesture)
@@ -159,6 +159,21 @@ public extension UIView {
 			if v.tag == tag {
 				return v
 			}
+		}
+		return nil
+	}
+
+	public func firstAvailableUIViewController() -> UIViewController? {
+		return traverseResponderChainForUIViewController() as? UIViewController
+	}
+
+	public func traverseResponderChainForUIViewController() -> Any? {
+		let nextResponder = self.next
+		if (nextResponder is UIViewController) {
+			return nextResponder
+		}
+		if (nextResponder is UIView) {
+			return (nextResponder as! UIView).traverseResponderChainForUIViewController()
 		}
 		return nil
 	}

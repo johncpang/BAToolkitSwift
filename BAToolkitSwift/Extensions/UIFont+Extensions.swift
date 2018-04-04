@@ -44,4 +44,31 @@ public extension UIFont {
 		return UIFont.systemFont(ofSize: self.pointSize, weight: weight)
 	}
 
+	public func fontWithSymbolicTraits(_ symbolicTraits: UIFontDescriptorSymbolicTraits) -> UIFont {
+		if let descriptor = self.fontDescriptor.withSymbolicTraits(symbolicTraits) {
+			return UIFont.init(descriptor: descriptor, size: self.pointSize)
+		}
+		return self
+	}
+
+	public func fontWithBold(_ isBold: Bool) -> UIFont {
+		var symbolicTraits = self.fontDescriptor.symbolicTraits
+		if (isBold) {
+			symbolicTraits.insert([.traitBold])
+		} else {
+			symbolicTraits.remove([.traitBold])
+		}
+		return fontWithSymbolicTraits(symbolicTraits)
+	}
+
+	public func fontWithItalic(_ isItalic: Bool) -> UIFont {
+		var symbolicTraits = self.fontDescriptor.symbolicTraits
+		if (isItalic) {
+			symbolicTraits.insert([.traitItalic])
+		} else {
+			symbolicTraits.remove([.traitItalic])
+		}
+		return fontWithSymbolicTraits(symbolicTraits)
+	}
+
 }

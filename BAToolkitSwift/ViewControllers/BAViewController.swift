@@ -1,5 +1,5 @@
 //
-//  BaseViewController.swift
+//  BAViewController.swift
 //
 //  @version 1.0
 //  @author John Pang, http://brewingapps.com
