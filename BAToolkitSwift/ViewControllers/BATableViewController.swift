@@ -31,7 +31,7 @@ import UIKit
 
 open class BATableViewController: UITableViewController {
 
-	override public init(style: UITableViewStyle) {
+	override public init(style: UITableView.Style) {
 		super.init(style: style)
 	}
 
@@ -86,7 +86,7 @@ open class BATableViewController: UITableViewController {
 
 	override open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		let cell = super.tableView(tableView, cellForRowAt: indexPath)
-		return (cell.isHidden ? 0 : UITableViewAutomaticDimension)
+		return (cell.isHidden ? 0 : UITableView.automaticDimension)
 	}
 
 	override open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

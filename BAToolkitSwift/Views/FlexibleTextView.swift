@@ -57,7 +57,7 @@ import UIKit
 	func xibSetup() {
 		isScrollEnabled = false
 		autoresizingMask = [.flexibleWidth, .flexibleHeight]
-		NotificationCenter.default.addObserver(self, selector: #selector(UITextInputDelegate.textDidChange(_:)), name: Notification.Name.UITextViewTextDidChange, object: self)
+		NotificationCenter.default.addObserver(self, selector: #selector(UITextInputDelegate.textDidChange(_:)), name: UITextView.textDidChangeNotification, object: self)
 		placeholderTextView.font = font
 		addSubview(placeholderTextView)
 
@@ -102,7 +102,7 @@ import UIKit
 	override open var intrinsicContentSize: CGSize {
 		var size = super.intrinsicContentSize
 
-		if size.height == UIViewNoIntrinsicMetric {
+		if size.height == UIView.noIntrinsicMetric {
 			// force layout
 			layoutManager.glyphRange(for: textContainer)
 			size.height = layoutManager.usedRect(for: textContainer).height + textContainerInset.top + textContainerInset.bottom

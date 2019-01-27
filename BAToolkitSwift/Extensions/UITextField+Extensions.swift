@@ -42,7 +42,7 @@ public extension UITextField {
 	}
 
 	public func setPlaceholderColor(_ color: UIColor) {
-		let attr = [NSAttributedStringKey.foregroundColor : color]
+		let attr = [NSAttributedString.Key.foregroundColor : color]
 		self.attributedPlaceholder = NSAttributedString.init(string: self.placeholder!,
 															 attributes: attr)
 	}

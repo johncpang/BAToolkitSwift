@@ -31,10 +31,13 @@ open class BAPageViewController: UIPageViewController {
 
 	public var pages = [UIViewController]()
 
-	override public init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil) {
+	override public init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
+// Local variable inserted by Swift 4.2 migrator.
+let options = convertFromOptionalUIPageViewControllerOptionsKeyDictionary(options)
+
 		super.init(transitionStyle: style,
 				   navigationOrientation: navigationOrientation,
-				   options: options)
+				   options: convertToOptionalUIPageViewControllerOptionsKeyDictionary(options))
 	}
 
 	required public init?(coder: NSCoder) {
@@ -58,7 +61,7 @@ open class BAPageViewController: UIPageViewController {
 			}
 
 			let vc = pages[newValue]
-			let direction:UIPageViewControllerNavigationDirection = newValue > currentIndex ? .forward : .reverse
+			let direction:UIPageViewController.NavigationDirection = newValue > currentIndex ? .forward : .reverse
 			self.setViewControllers([vc], direction: direction, animated: true, completion: nil)
 		}
 	}
@@ -107,4 +110,16 @@ extension BAPageViewController: UIScrollViewDelegate {
 		}
 	}
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromOptionalUIPageViewControllerOptionsKeyDictionary(_ input: [UIPageViewController.OptionsKey: Any]?) -> [String: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalUIPageViewControllerOptionsKeyDictionary(_ input: [String: Any]?) -> [UIPageViewController.OptionsKey: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIPageViewController.OptionsKey(rawValue: key), value)})
 }

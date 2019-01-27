@@ -131,7 +131,7 @@ public extension UIView {
 		let nib = UINib(nibName: nibName, bundle: bundle)
 		let v = nib.instantiate(withOwner: self, options: nil).first as! UIView
 		v.frame = bounds
-		v.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+		v.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
 		return v
 	}
 

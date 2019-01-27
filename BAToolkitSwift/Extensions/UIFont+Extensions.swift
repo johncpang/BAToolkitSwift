@@ -29,12 +29,12 @@ import UIKit
 
 public extension UIFont {
 
-	@objc class func font(forTextStyle style: UIFontTextStyle, multiple: CGFloat) -> UIFont {
+	@objc class func font(forTextStyle style: UIFont.TextStyle, multiple: CGFloat) -> UIFont {
 		let font = UIFont.preferredFont(forTextStyle: style)
 		return font.withSize(font.pointSize * multiple)
 	}
 
-	@objc class func systemFont(forTextStyle style: UIFontTextStyle, multiple: CGFloat, weight: Weight) -> UIFont {
+	@objc class func systemFont(forTextStyle style: UIFont.TextStyle, multiple: CGFloat, weight: Weight) -> UIFont {
 		let font = UIFont.preferredFont(forTextStyle: style)
 		let size = font.pointSize * multiple
 		return UIFont.systemFont(ofSize: size, weight: weight)
@@ -44,7 +44,7 @@ public extension UIFont {
 		return UIFont.systemFont(ofSize: self.pointSize, weight: weight)
 	}
 
-	public func fontWithSymbolicTraits(_ symbolicTraits: UIFontDescriptorSymbolicTraits) -> UIFont {
+	public func fontWithSymbolicTraits(_ symbolicTraits: UIFontDescriptor.SymbolicTraits) -> UIFont {
 		if let descriptor = self.fontDescriptor.withSymbolicTraits(symbolicTraits) {
 			return UIFont.init(descriptor: descriptor, size: self.pointSize)
 		}

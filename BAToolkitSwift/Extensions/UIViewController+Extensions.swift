@@ -102,17 +102,17 @@ public extension UIViewController {
 	}
 
 	@objc public func tableView(_ tableView: UITableView, enableAutoRowHeight estimatedRowHeight: CGFloat) {
-		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.rowHeight = UITableView.automaticDimension
 		tableView.estimatedRowHeight = estimatedRowHeight
 	}
 
 	@objc public func tableView(_ tableView: UITableView, enableAutoSectionHeaderHeight height: CGFloat) {
-		tableView.sectionHeaderHeight = UITableViewAutomaticDimension
+		tableView.sectionHeaderHeight = UITableView.automaticDimension
 		tableView.estimatedSectionHeaderHeight = height
 	}
 
 	@objc public func tableView(_ tableView: UITableView, enableAutoSectionFooterHeight height: CGFloat) {
-		tableView.sectionFooterHeight = UITableViewAutomaticDimension
+		tableView.sectionFooterHeight = UITableView.automaticDimension
 		tableView.estimatedSectionFooterHeight = height
 	}
 
