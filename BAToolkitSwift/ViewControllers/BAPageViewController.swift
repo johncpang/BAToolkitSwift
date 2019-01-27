@@ -32,12 +32,9 @@ open class BAPageViewController: UIPageViewController {
 	public var pages = [UIViewController]()
 
 	override public init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
-// Local variable inserted by Swift 4.2 migrator.
-let options = convertFromOptionalUIPageViewControllerOptionsKeyDictionary(options)
-
 		super.init(transitionStyle: style,
 				   navigationOrientation: navigationOrientation,
-				   options: convertToOptionalUIPageViewControllerOptionsKeyDictionary(options))
+				   options: options)
 	}
 
 	required public init?(coder: NSCoder) {
@@ -110,16 +107,4 @@ extension BAPageViewController: UIScrollViewDelegate {
 		}
 	}
 
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromOptionalUIPageViewControllerOptionsKeyDictionary(_ input: [UIPageViewController.OptionsKey: Any]?) -> [String: Any]? {
-	guard let input = input else { return nil }
-	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToOptionalUIPageViewControllerOptionsKeyDictionary(_ input: [String: Any]?) -> [UIPageViewController.OptionsKey: Any]? {
-	guard let input = input else { return nil }
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIPageViewController.OptionsKey(rawValue: key), value)})
 }
