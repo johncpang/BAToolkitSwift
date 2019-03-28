@@ -31,7 +31,7 @@ import UIKit
 
 public extension UIButton {
 
-	@objc public func centerButtonAndImage(spacing: CGFloat) {
+	@objc func centerButtonAndImage(spacing: CGFloat) {
 		self.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: spacing)
 		self.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: spacing, bottom: 0, right: 0)
 	}

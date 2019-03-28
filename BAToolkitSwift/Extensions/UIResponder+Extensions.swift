@@ -31,15 +31,15 @@ import UIKit
 
 public extension UIResponder {
 
-	public func iOS_version() -> Float {
+	func iOS_version() -> Float {
 		return UIDevice.current.systemVersion.floatValue()
 	}
 
-	public func asyncNow(execute work: @escaping @convention(block) () -> Swift.Void) {
+	func asyncNow(execute work: @escaping @convention(block) () -> Swift.Void) {
 		DispatchQueue.main.asyncAfter(deadline: .now(), execute: work)
 	}
 
-	public func asyncAfter(_ delay: DispatchTimeInterval, execute work: @escaping @convention(block) () -> Swift.Void) {
+	func asyncAfter(_ delay: DispatchTimeInterval, execute work: @escaping @convention(block) () -> Swift.Void) {
 		DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: work)
 	}
 

@@ -38,7 +38,7 @@ public extension Date {
 	}
 
 	// example localIdentifier: "en_US_POSIX"
-	public func string(format: String, localeIdentifier: String? = nil) -> String {
+	func string(format: String, localeIdentifier: String? = nil) -> String {
 		let formatter = DateFormatter()
 		formatter.dateFormat = format
 		if let identifier = localeIdentifier {
@@ -47,19 +47,19 @@ public extension Date {
 		return formatter.string(from: self)
 	}
 
-	public func isBeforeToday() -> Bool {
+	func isBeforeToday() -> Bool {
 		return (compareWithToday() == .orderedAscending)
 	}
 
-	public func isToday() -> Bool {
+	func isToday() -> Bool {
 		return (compareWithToday() == .orderedSame)
 	}
 
-	public func isAfterToday() -> Bool {
+	func isAfterToday() -> Bool {
 		return (compareWithToday() == .orderedDescending)
 	}
 
-	public func compareWithToday() -> ComparisonResult {
+	func compareWithToday() -> ComparisonResult {
 		let cal = Locale.current.calendar
 		let units: Set<Calendar.Component> = [.year, .month, .day]
 		let today = cal.date(from: cal.dateComponents(units, from: Date()))!
@@ -67,7 +67,7 @@ public extension Date {
 		return date.compare(today)
 	}
 
-	public func isCurrentYear() -> Bool {
+	func isCurrentYear() -> Bool {
 		let cal = Locale.current.calendar
 		return cal.component(.year, from: self) == cal.component(.year, from: Date())
 	}

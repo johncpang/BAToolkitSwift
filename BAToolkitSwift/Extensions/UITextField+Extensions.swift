@@ -31,7 +31,7 @@ import UIKit
 
 public extension UITextField {
 
-	public func setBottomBorder(color: UIColor) {
+	func setBottomBorder(color: UIColor) {
 		self.borderStyle = .none
 		self.layer.backgroundColor = UIColor.white.cgColor
 		self.layer.masksToBounds = false
@@ -41,7 +41,7 @@ public extension UITextField {
 		self.layer.shadowRadius = 0.0
 	}
 
-	public func setPlaceholderColor(_ color: UIColor) {
+	func setPlaceholderColor(_ color: UIColor) {
 		let attr = [NSAttributedString.Key.foregroundColor : color]
 		self.attributedPlaceholder = NSAttributedString.init(string: self.placeholder!,
 															 attributes: attr)

@@ -40,7 +40,7 @@ public extension String {
 		return ((nil == string) || (string!.length == 0))
 	}
 
-	public func isValidEmail() -> Bool {
+	func isValidEmail() -> Bool {
 		if (self.length > 0) {
 			// Regular domain name: [A-Za-z0-9.-]+\.[A-Za-z]{2,4}
 			// IP address: [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}
@@ -59,7 +59,7 @@ public extension String {
 	// MARK: Common Swift String Extensions
 	// https://gist.github.com/albertbori/0faf7de867d96eb83591
 
-	public var length: Int {
+	var length: Int {
 		get {
 			#if swift(>=3.2)
 				return self.count
@@ -69,29 +69,29 @@ public extension String {
 		}
 	}
 
-	public func floatValue() -> Float {
+	func floatValue() -> Float {
 		return (self as NSString).floatValue
 	}
 	
-	public func contains(s: String) -> Bool {
+	func contains(s: String) -> Bool {
 		return (self.range(of: s) != nil) ? true : false
 	}
 
-	public func fullRange() -> NSRange {
+	func fullRange() -> NSRange {
 		return NSRange.init(location: 0, length: self.length)
 	}
 
 	// MARK: -
 
-	public func trim() -> String {
+	func trim() -> String {
 		return self.trimmingCharacters(in: .whitespacesAndNewlines)
 	}
 
-	public func replace(target: String, withString: String) -> String {
+	func replace(target: String, withString: String) -> String {
 		return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
 	}
 
-	public func replace(pattern: String, withTemplate templ: String) -> String {
+	func replace(pattern: String, withTemplate templ: String) -> String {
 		if let regex = try? NSRegularExpression.init(pattern: pattern, options: .caseInsensitive) {
 			return regex.stringByReplacingMatches(in: self,
 												  range: self.fullRange(),
@@ -100,7 +100,7 @@ public extension String {
 		return self
 	}
 
-	public func remove(pattern: String) -> String {
+	func remove(pattern: String) -> String {
 		return replace(pattern: pattern, withTemplate: "")
 	}
 
@@ -129,7 +129,7 @@ public extension String {
 
 	// MARK: - URL
 
-	public func asEncodedURL() -> URL? {
+	func asEncodedURL() -> URL? {
 		if let url = URL(string: self) {
 			return url
 		}
@@ -141,7 +141,7 @@ public extension String {
 
 	// MARK: - HTML handlings
 
-	public func unescapeHTML() -> String {
+	func unescapeHTML() -> String {
 		guard let data = self.data(using: .utf8) else {
 			return self
 		}
@@ -152,7 +152,7 @@ public extension String {
 		return attrString?.string ?? self
 	}
 
-	public func stripHTML() -> String {
+	func stripHTML() -> String {
 		return self.replacingOccurrences(of: "<[^>]+>",
 										 with: "",
 										 options: .regularExpression,
@@ -161,7 +161,7 @@ public extension String {
 
 	// MARK: - JSON handlings
 
-	static public func string(jsonObject: Any) -> String? {
+	static func string(jsonObject: Any) -> String? {
 		if let data = try? JSONSerialization.data(withJSONObject: jsonObject) {
 			return String.init(data: data, encoding: .utf8)!
 		}
@@ -170,27 +170,27 @@ public extension String {
 
 	// MARK: - Numeric comparsion
 
-	public func numericCompareTo(_ string: String) -> ComparisonResult {
+	func numericCompareTo(_ string: String) -> ComparisonResult {
 		return self.compare(string, options: .numeric)
 	}
 
-	public func numericEqualTo(_ string: String) -> Bool {
+	func numericEqualTo(_ string: String) -> Bool {
 		return numericCompareTo(string) == .orderedSame
 	}
 
-	public func numericGreaterThan(_ string: String) -> Bool {
+	func numericGreaterThan(_ string: String) -> Bool {
 		return numericCompareTo(string) == .orderedDescending
 	}
 
-	public func numericGreaterThanOrEqualTo(_ string: String) -> Bool {
+	func numericGreaterThanOrEqualTo(_ string: String) -> Bool {
 		return numericCompareTo(string) != .orderedAscending
 	}
 
-	public func numericLessThan(_ string: String) -> Bool {
+	func numericLessThan(_ string: String) -> Bool {
 		return numericCompareTo(string) == .orderedAscending
 	}
 
-	public func numericLessThanOrEqualTo(_ string: String) -> Bool {
+	func numericLessThanOrEqualTo(_ string: String) -> Bool {
 		return numericCompareTo(string) != .orderedDescending
 	}
 

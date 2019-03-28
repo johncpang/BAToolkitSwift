@@ -33,26 +33,26 @@ public extension UIView {
 
 	// MARK: - Display and Styling
 
-	@objc public func setBorder(color: UIColor) {
+	@objc func setBorder(color: UIColor) {
 		self.layer.borderColor = color.cgColor
 	}
 
-	@objc public func setBorder(color: UIColor, width: CGFloat, native: Bool = true) {
+	@objc func setBorder(color: UIColor, width: CGFloat, native: Bool = true) {
 		self.layer.borderColor = color.cgColor
 		self.layer.borderWidth = width * (native ? UIScreen.main.scale / UIScreen.main.nativeScale : 1)
 	}
 
-	@objc public func setRoundCorner(_ radius: CGFloat) {
+	@objc func setRoundCorner(_ radius: CGFloat) {
 		self.layer.cornerRadius = radius
 		self.clipsToBounds = true
 	}
 
-	@objc public func clearRoundCorder() {
+	@objc func clearRoundCorder() {
 		self.layer.cornerRadius = 0.0
 	}
 
 	// http://stackoverflow.com/questions/23988086/how-to-do-hexagon-type-image-masking-on-imageview-in-ios
-	public func setupAsHexagon() {
+	func setupAsHexagon() {
 		let rect = self.frame
 		let hexagonMask = CAShapeLayer.init()
 		let hexagonPath = UIBezierPath.init()
@@ -76,7 +76,7 @@ public extension UIView {
 		self.layer.mask = hexagonMask
 	}
 
-	public func fadeOut(_ animated: Bool = true) {
+	func fadeOut(_ animated: Bool = true) {
 		if (animated && self.alpha != 0) {
 			UIView.animate(withDuration: 0.3) {self.alpha = 0}
 		} else {
@@ -84,7 +84,7 @@ public extension UIView {
 		}
 	}
 
-	public func fadeIn(_ animated: Bool = true) {
+	func fadeIn(_ animated: Bool = true) {
 		if (animated && self.alpha != 1) {
 			UIView.animate(withDuration: 0.3) {self.alpha = 1}
 		} else {
@@ -94,7 +94,7 @@ public extension UIView {
 
 	// MARK: - User Interactions
 
-	@discardableResult @objc public func addTapGesture(target: UIGestureRecognizerDelegate?, action: Selector?) -> UITapGestureRecognizer {
+	@discardableResult @objc func addTapGesture(target: UIGestureRecognizerDelegate?, action: Selector?) -> UITapGestureRecognizer {
 		let gesture = UITapGestureRecognizer.init(target: target, action: action)
 		gesture.numberOfTapsRequired = 1
 		self.addGestureRecognizer(gesture)
@@ -107,7 +107,7 @@ public extension UIView {
 	// MARK: - Animation
 
 	// https://stackoverflow.com/a/34199068
-	@objc public func startRotate() {
+	@objc func startRotate() {
 		let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
 		rotation.toValue = NSNumber(value: -Double.pi * 2)
 		rotation.duration = 2
@@ -116,17 +116,17 @@ public extension UIView {
 		self.layer.add(rotation, forKey: "rotationAnimation")
 	}
 
-	@objc public func stopRotate() {
+	@objc func stopRotate() {
 		self.layer.removeAnimation(forKey: "rotationAnimation")
 	}
 
 	// MARK: - View loading
 
-	public func loadViewFromNib() -> UIView {
+	func loadViewFromNib() -> UIView {
 		return loadViewFromNib(String(describing: type(of: self)))
 	}
 
-	public func loadViewFromNib(_ nibName: String) -> UIView {
+	func loadViewFromNib(_ nibName: String) -> UIView {
 		let bundle = Bundle(for: type(of: self))
 		let nib = UINib(nibName: nibName, bundle: bundle)
 		let v = nib.instantiate(withOwner: self, options: nil).first as! UIView
@@ -135,11 +135,11 @@ public extension UIView {
 		return v
 	}
 
-	@objc public func removeAllSubviews() {
+	@objc func removeAllSubviews() {
 		self.subviews.forEach() { $0.removeFromSuperview() }
 	}
 
-	@objc public func findFirstResponder() -> UIView? {
+	@objc func findFirstResponder() -> UIView? {
 		if (self.isFirstResponder) {
 			return self
 		}
@@ -151,7 +151,7 @@ public extension UIView {
 		return nil
 	}
 
-	@objc public func subview(withTag tag: Int) -> UIView? {
+	@objc func subview(withTag tag: Int) -> UIView? {
 		for v in self.subviews {
 			if let v2 = v.subview(withTag: tag) {
 				return v2
@@ -163,11 +163,11 @@ public extension UIView {
 		return nil
 	}
 
-	public func firstAvailableUIViewController() -> UIViewController? {
+	func firstAvailableUIViewController() -> UIViewController? {
 		return traverseResponderChainForUIViewController() as? UIViewController
 	}
 
-	public func traverseResponderChainForUIViewController() -> Any? {
+	func traverseResponderChainForUIViewController() -> Any? {
 		let nextResponder = self.next
 		if (nextResponder is UIViewController) {
 			return nextResponder

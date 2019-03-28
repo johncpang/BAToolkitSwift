@@ -77,7 +77,7 @@ public extension UIColor {
 		)
 	}
 
-	public var hexString: String {
+	var hexString: String {
 		let colorRef = self.cgColor.components!
 		let r: CGFloat = colorRef[0]
 		let g: CGFloat = colorRef[1]

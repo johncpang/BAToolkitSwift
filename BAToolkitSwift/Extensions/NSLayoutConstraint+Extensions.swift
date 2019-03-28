@@ -30,14 +30,14 @@
 import Foundation
 import UIKit
 
-extension NSLayoutConstraint {
+public extension NSLayoutConstraint {
 	/**
 	Change multiplier constraint
 
 	- parameter multiplier: CGFloat
 	- returns: NSLayoutConstraint
 	*/
-	public func replace(multiplier:CGFloat) -> NSLayoutConstraint {
+	func replace(multiplier:CGFloat) -> NSLayoutConstraint {
 
 		NSLayoutConstraint.deactivate([self])
 
