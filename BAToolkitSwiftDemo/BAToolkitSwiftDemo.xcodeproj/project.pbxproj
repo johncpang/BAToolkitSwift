@@ -31,6 +31,7 @@
 		520A5F701FB00CC500537B49 /* BATableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A5F6F1FB00CC500537B49 /* BATableViewController.swift */; };
 		520A5F751FB0183B00537B49 /* BAImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A5F741FB0183B00537B49 /* BAImageView.swift */; };
 		5228F3BE1FB02040003839AF /* BAToolkitSwift.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5228F3BD1FB02040003839AF /* BAToolkitSwift.podspec */; };
+		525F25E1224D368C009B4039 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525F25E0224D368C009B4039 /* UIStackView+Extensions.swift */; };
 		528ECC461FF563AE0053143B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528ECC381FF563AC0053143B /* UIView+Extensions.swift */; };
 		528ECC471FF563AE0053143B /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528ECC391FF563AC0053143B /* Date+Extensions.swift */; };
 		528ECC481FF563AE0053143B /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528ECC3A1FF563AC0053143B /* UIImage+Extensions.swift */; };
@@ -87,6 +88,7 @@
 		520A5F6F1FB00CC500537B49 /* BATableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BATableViewController.swift; sourceTree = "<group>"; };
 		520A5F741FB0183B00537B49 /* BAImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAImageView.swift; sourceTree = "<group>"; };
 		5228F3BD1FB02040003839AF /* BAToolkitSwift.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BAToolkitSwift.podspec; path = ../BAToolkitSwift.podspec; sourceTree = "<group>"; };
+		525F25E0224D368C009B4039 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		528ECC381FF563AC0053143B /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		528ECC391FF563AC0053143B /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		528ECC3A1FF563AC0053143B /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				528ECC3A1FF563AC0053143B /* UIImage+Extensions.swift */,
 				528ECC401FF563AD0053143B /* UIRefreshControl+Extensions.swift */,
 				528ECC3B1FF563AC0053143B /* UIResponder+Extensions.swift */,
+				525F25E0224D368C009B4039 /* UIStackView+Extensions.swift */,
 				528ECC3C1FF563AC0053143B /* UITextField+Extensions.swift */,
 				528ECC381FF563AC0053143B /* UIView+Extensions.swift */,
 				528ECC411FF563AD0053143B /* UIViewController+Extensions.swift */,
@@ -375,6 +378,7 @@
 				520A5F571FB00BE200537B49 /* BAViewController.swift in Sources */,
 				520A5F621FB00BE200537B49 /* BARoundImageView.swift in Sources */,
 				520A5F5F1FB00BE200537B49 /* UnderlineTextField.swift in Sources */,
+				525F25E1224D368C009B4039 /* UIStackView+Extensions.swift in Sources */,
 				528ECC501FF563AE0053143B /* UIFont+Extensions.swift in Sources */,
 				528ECC4F1FF563AE0053143B /* UIViewController+Extensions.swift in Sources */,
 			);

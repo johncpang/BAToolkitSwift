@@ -10,12 +10,12 @@ import UIKit
 @available(iOS 9.0, *)
 public extension UIStackView {
 
-	public func discardArrangedSubview(_ view: UIView) {
+	func discardArrangedSubview(_ view: UIView) {
 		self.removeArrangedSubview(view)
 		view.removeFromSuperview()
 	}
 
-	public func discardArrangedSubviews() {
+	func discardArrangedSubviews() {
 		let array = self.arrangedSubviews
 		for (_, view) in array.enumerated().reversed() {
 			discardArrangedSubview(view)
