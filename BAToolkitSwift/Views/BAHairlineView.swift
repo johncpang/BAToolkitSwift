@@ -31,6 +31,14 @@ import UIKit
 
 	@IBInspectable open var thickness: CGFloat = 1.0
 
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+	}
+
+	required public init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+	}
+
 	override open func awakeFromNib() {
 		super.awakeFromNib()
 		self.constraints.forEach() {

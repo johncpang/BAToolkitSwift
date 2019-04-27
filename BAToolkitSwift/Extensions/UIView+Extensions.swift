@@ -94,13 +94,13 @@ public extension UIView {
 
 	// MARK: - User Interactions
 
-	@discardableResult @objc func addTapGesture(target: UIGestureRecognizerDelegate?, action: Selector?) -> UITapGestureRecognizer {
+	@discardableResult @objc func addTapGesture(target: Any?, action: Selector?) -> UITapGestureRecognizer {
 		let gesture = UITapGestureRecognizer.init(target: target, action: action)
 		gesture.numberOfTapsRequired = 1
 		self.addGestureRecognizer(gesture)
 		self.isUserInteractionEnabled = true
 		gesture.cancelsTouchesInView = true
-		gesture.delegate = target
+		gesture.delegate = target as? UIGestureRecognizerDelegate
 		return gesture
 	}
 
