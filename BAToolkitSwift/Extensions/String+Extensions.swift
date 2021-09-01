@@ -62,7 +62,7 @@ public extension String {
 	var length: Int {
 		get {
 			#if swift(>=3.2)
-				return self.count
+				return self.utf16.count
 			#else
 				return self.characters.count
 			#endif
